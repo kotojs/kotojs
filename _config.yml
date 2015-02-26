@@ -3,7 +3,7 @@
 # Site Settings
 title: 						"Kotojs"
 email: 						"info@kotojs.org"
-description: 				"Astro is a content focused responsive theme for the Jekyll blogging platform. Available for purchase at ThemeForest.net."
+description: 				"Kotojs is a charting framework for d3, writtn in ES6"
 baseurl: 					""
 url: 						"http://kotojs.org"
 logourl: 					"/assets/img/bloglogo.jpg"
