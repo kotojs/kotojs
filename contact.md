@@ -5,6 +5,6 @@ permalink: /contact/
 comments: false
 ---
 
-The documentation included provides all the information needed to get the theme installed and customized. However, if you have any questions you can email support@ecko.me, and we will be happy to help.
+[![Join the chat at https://gitter.im/nicksrandall/kotojs](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/nicksrandall/kotojs?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 If you have any bug reports, or feature requests, please let us know!
