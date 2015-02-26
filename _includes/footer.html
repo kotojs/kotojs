@@ -1,0 +1,11 @@
+<footer class="wrapper">
+    <div class="smallnav">
+    	{% for page in site.pages %}
+        	{% if page.title %}<a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a> &bull;{% endif %}
+        {% endfor %}
+    </div>
+    <div>
+        Copyright &copy; <a href="{{ site.url }}/">{{ site.title }}</a>. 2014 &bull; All rights reserved.
+        <span class="ghost">Proudly published with <a href="http://jekyllrb.com/" target="_blank">Jekyll</a>.</span>
+    </div>
+</footer>

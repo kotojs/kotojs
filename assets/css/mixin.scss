@@ -1,0 +1,28 @@
+
+@mixin border-radius($radius-top, $radius-bottom) {
+	-webkit-border-radius: $radius-top $radius-bottom;
+	-moz-border-radius: $radius-top $radius-bottom;
+	border-radius: $radius-top $radius-bottom;
+}
+
+@mixin transition($transition) {
+	-webkit-transition: $transition;
+	-moz-transition: $transition;
+	-ms-transition: $transition;
+	-o-transition: $transition;
+	transition: $transition;
+}
+
+@mixin transition_two($transition1, $transition2) {
+	-webkit-transition: $transition1, $transition2;
+	-moz-transition: $transition1, $transition2;
+	-ms-transition: $transition1, $transition2;
+	-o-transition: $transition1, $transition2;
+	transition: $transition1, $transition2;
+}
+
+@-webkit-keyframes pulsate {
+    0% { opacity: 0.4;}
+    50% { opacity: 6.0;}
+    100% { opacity: 0.4;}
+}

@@ -1,0 +1,12 @@
+<header class="title">
+    <a href="{{ site.url }}"><i class="fa {{ site.fa-logo }} fa-lg"></i><span>{{ site.title }}</span></a>
+</header>
+
+<nav class="wrapper {% if page.featured == true %} featured {% endif %} {% if site.theme_always_show_nav == true %} alwaysshow {% endif %}">
+    <a href="#" onclick="return false;"><i class="fa fa-navicon fa-lg"></i></a>
+    <ul>
+        {% for page in site.pages %}
+            {% if page.title %}<li><a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a></li>{% endif %}
+        {% endfor %}
+    </ul>
+</nav>

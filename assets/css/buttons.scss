@@ -1,0 +1,197 @@
+
+.smallbutton{
+
+	display:inline-block;
+	padding: 7px 22px;
+	font:600 14px 'Open Sans', Serif;
+	@include transition(all 0.2s ease-in-out);
+	@include border-radius(4px, 4px);
+
+	i{
+		margin-right:15px;
+	}
+
+	&.blue{
+		border:2px solid #0066d9;
+		background:#0066d9;
+		color:#fff;
+		&:hover{
+			border:2px solid #c3c2c9;
+			background:#fff;
+			color:#686868;
+		}
+	}
+
+	&.lightgray{
+		border:2px solid #c3c2c9;
+		background:#fff;
+		color:#686868;
+		&:hover{
+			border:2px solid #0066d9;
+			background:#0066d9;
+			color:#fff;
+		}
+	}
+
+	&.solidgray{
+		border:2px solid #edebf3;
+		background:#edebf3;
+		color:#858585;
+		&:hover{
+			border:2px solid #edebf3;
+			background:#fff;
+			color:#858585;
+		}
+	}
+
+}
+
+.smallsocialbutton{
+
+	margin:0 3px;
+	display:block;
+	width:32px;
+	height:28px;
+	text-align:center;
+	background:#efefef;
+	color:#606060;
+	@include border-radius(36px, 36px);
+
+	i{
+		vertical-align: -5px;
+		position:relative;
+	}
+
+	@include transition(all 0.2s ease-in-out);
+
+	&.twitter:hover{
+		background:#00acee;
+		color:#fff;
+	}
+
+	&.facebook:hover{
+		background:#3b5998;
+		color:#fff;
+	}
+
+	&.github:hover{
+		background:#171515;
+		color:#fff;
+	}
+
+	&.instagram:hover{
+		background:#3f729b;
+		color:#fff;
+	}
+
+	&.rss:hover{
+		background:#ee802f;
+		color:#fff;
+	}
+
+}
+
+.social{
+
+
+	.twitter{
+		-webkit-box-shadow: inset 0 0 0px 20px #00acee;
+		box-shadow: inset 0 0 0px 20px #00acee;
+		&:hover{
+			color:#00acee;
+			-webkit-box-shadow: inset 0 0 0px 2px #00acee;
+			box-shadow: inset 0 0 0px 2px #00acee;
+		}
+	}
+
+	.facebook{
+		-webkit-box-shadow: inset 0 0 0px 20px #3b5998;
+		box-shadow: inset 0 0 0px 20px #3b5998;
+		&:hover{
+			color:#3b5998;
+			-webkit-box-shadow: inset 0 0 0px 2px #3b5998;
+			box-shadow: inset 0 0 0px 2px #3b5998;
+		}
+	}
+
+	.github{
+		-webkit-box-shadow: inset 0 0 0px 20px #171515;
+		box-shadow: inset 0 0 0px 20px #171515;
+		&:hover{
+			color:#171515;
+			-webkit-box-shadow: inset 0 0 0px 2px #171515;
+			box-shadow: inset 0 0 0px 2px #171515;
+		}
+	}
+
+	.rss{
+		-webkit-box-shadow: inset 0 0 0px 20px #ee802f;
+		box-shadow: inset 0 0 0px 20px #ee802f;
+		&:hover{
+			color:#ee802f;
+			-webkit-box-shadow: inset 0 0 0px 2px #ee802f;
+			box-shadow: inset 0 0 0px 2px #ee802f;
+		}
+	}
+
+	.youtube{
+		-webkit-box-shadow: inset 0 0 0px 20px #c4302b;
+		box-shadow: inset 0 0 0px 20px #c4302b;
+		&:hover{
+			color:#c4302b;
+			-webkit-box-shadow: inset 0 0 0px 2px #c4302b;
+			box-shadow: inset 0 0 0px 2px #c4302b;
+		}
+	}
+
+	.dribbble{
+		-webkit-box-shadow: inset 0 0 0px 20px #ea4c89;
+		box-shadow: inset 0 0 0px 20px #ea4c89;
+		&:hover{
+			color:#ea4c89;
+			-webkit-box-shadow: inset 0 0 0px 2px #ea4c89;
+			box-shadow: inset 0 0 0px 2px #ea4c89;
+		}
+	}
+
+	.googleplus{
+		-webkit-box-shadow: inset 0 0 0px 20px #dd4b39;
+		box-shadow: inset 0 0 0px 20px #dd4b39;
+		&:hover{
+			color:#dd4b39;
+			-webkit-box-shadow: inset 0 0 0px 2px #dd4b39;
+			box-shadow: inset 0 0 0px 2px #dd4b39;
+		}
+	}
+
+	.instagram{
+		-webkit-box-shadow: inset 0 0 0px 20px #3f729b;
+		box-shadow: inset 0 0 0px 20px #3f729b;
+		&:hover{
+			color:#3f729b;
+			-webkit-box-shadow: inset 0 0 0px 2px #3f729b;
+			box-shadow: inset 0 0 0px 2px #3f729b;
+		}
+	}
+
+	.pinterest{
+		-webkit-box-shadow: inset 0 0 0px 20px #c8232c;
+		box-shadow: inset 0 0 0px 20px #c8232c;
+		&:hover{
+			color:#c8232c;
+			-webkit-box-shadow: inset 0 0 0px 2px #c8232c;
+			box-shadow: inset 0 0 0px 2px #c8232c;
+		}
+	}
+
+	.linkedin{
+		-webkit-box-shadow: inset 0 0 0px 20px #0e76a8;
+		box-shadow: inset 0 0 0px 20px #0e76a8;
+		&:hover{
+			color:#0e76a8;
+			-webkit-box-shadow: inset 0 0 0px 2px #0e76a8;
+			box-shadow: inset 0 0 0px 2px #0e76a8;
+		}
+	}
+
+}

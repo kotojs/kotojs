@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="utf-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+      <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+      <meta name="description" content="{{ site.description }}" />
+
+      <meta name="HandheldFriendly" content="True" />
+      <meta name="MobileOptimized" content="320" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+      <link rel="alternate" type="application/rss+xml" href="{{ site.url }}/feed.xml">
+      <link rel="shortcut icon" href="{{ "/favicon.ico" | prepend: site.baseurl }}">
+      <link rel="prefetch" href="{{ site.url }}">
+      <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+
+      <link rel="stylesheet" href="{{ "/assets/css/init.css" | prepend: site.baseurl }}">
+      <link href='//fonts.googleapis.com/css?family=Domine:700|Open+Sans:400,600|Source+Code+Pro:500' rel='stylesheet' type='text/css'>
+      <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+  </head>
+  <body>
+
+    {% include header.html %}
+
+    {{ content }}
+
+    {% include footer.html %}
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript">
+      var config = {
+        'disqus_shortname': '{{ site.theme_disqus_shortname }}',
+        'google_comments': {{ site.theme_google_comments }},
+        'analytics_id': '{{ site.theme_analytics_id }}',
+        'analytics_domain': '{{ site.theme_analytics_domain }}',
+        'readingtime': {{ site.theme_reading_time }},
+        'autoload_comments': {{ site.theme_autoload_comments }}
+      };
+    </script>
+    <script async type="text/javascript" src="{{ "/assets/js/theme.min.js" | prepend: site.baseurl }}"></script>
+
+  </body>
+</html>

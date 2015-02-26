@@ -1,0 +1,54 @@
+
+
+# Site Settings
+title: 						"Kotojs"
+email: 						"info@kotojs.org"
+description: 				"Astro is a content focused responsive theme for the Jekyll blogging platform. Available for purchase at ThemeForest.net."
+baseurl: 					""
+url: 						"http://kotojs.org"
+logourl: 					"/assets/img/bloglogo.jpg"
+fa-logo: 					"fa-bookmark-o"
+paginate: 					5
+
+
+# Author Settings
+author_name: 				"Nick Randall"
+author_url: 				"http://nickrandall.com"
+author_bio: 				"Nick Randall is a front end developer and javascript evangelist. More info is coming soon."
+author_email: 				"nicksrandall@gmail.com"
+author_image: 				"/assets/img/authorimage.jpg"
+
+
+# Social Settings
+twitter_url: 				"http://twitter.com"
+facebook_url: 				"http://facebook.com"
+github_url:  				"http://github.com"
+youtube_url:  				"http://youtube.com"
+dribbble_url:  				"http://dribbble.com"
+googleplus_url: 			"http://google.com/plus"
+instagram_url:  			"http://instagram.com"
+pinterest_url:  			"http://pinterest.com"
+linkedin_url:  				"http://linkedin.com"
+
+
+# Theme Settings
+theme_disqus_shortname: 	"koto"
+theme_google_comments: 		false
+theme_analytics_id: 		"UA-28282324-1"
+theme_analytics_domain: 	"kotojs.org"
+theme_reading_time: 		true
+theme_autoload_comments: 	false
+theme_always_show_nav: 		false
+
+
+# SASS Settings
+# DO NOT MODIFY
+sass:
+ sass_dir: "assets/css/"
+ style: :compressed
+
+
+# Build Settings
+markdown: 					kramdown
+permalink: 					pretty
+

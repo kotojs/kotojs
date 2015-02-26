@@ -1,0 +1,50 @@
+---
+layout: default
+---
+
+<div id="cover" class="cover {% if page.featured == true %} featured {% endif %}">
+    <div class="background"></div>
+    <header class="wrapper">
+    	<h2>
+            {% for category in post.categories %}
+                {{ category }} 
+            {% endfor %}
+    	</h2>
+    	<h1><a href="{{ page.url }}">{{ page.title }}</a></h1>
+    </header>
+</div>
+
+<section class="posts wrapper">
+  <article class="post {% if page.featured == true %} featured {% endif %}">
+	  
+	<header>
+        <div class="feature"><span>Featured</span><i class="fa fa-bookmark fa-lg"></i></div>
+        <h2>
+            {% for category in post.categories %}
+                {{ category }} 
+            {% endfor %}
+        </h2>
+        <h1 id="posttitle"><a href="#">{{ page.title }}</a></h1>
+    </header>
+
+	<section class="postbody">
+		{{content}}
+	</section>
+
+	<footer>
+		<ul class="share left">
+			<li><a href="http://twitter.com/share?text={{ page.title }}&url={{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" class="smallbutton lightgray"><i class="fa fa-twitter"></i>Twitter</a></li>
+			<li><a href="https://www.facebook.com/sharer/sharer.php?u={{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" class="smallbutton lightgray"><i class="fa fa-facebook"></i>Facebook</a></li>
+		</ul>
+	</footer>
+
+	{% if page.comments %}
+	<div class="comments">
+		<a href="javascript:;" class="readmore smallbutton blue"><i class="fa fa-comments"></i>View Comments...</a>
+		<div id="disqus_thread"></div>
+		<div id="g-comments"></div>
+	</div>
+	{% endif %}
+  
+  </article>
+</section>
