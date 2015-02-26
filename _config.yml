@@ -4,8 +4,8 @@
 title: 						"Kotojs"
 email: 						"info@kotojs.org"
 description: 				"Kotojs is a charting framework for d3, writtn in ES6"
-baseurl: 					""
-url: 						"http://kotojs.org"
+baseurl: 					"http://nicksrandall.github.io/kotojs/"
+url: 						"http://nicksrandall.github.io/kotojs/"
 logourl: 					"/assets/img/bloglogo.jpg"
 fa-logo: 					"fa-bookmark-o"
 paginate: 					5
@@ -34,7 +34,7 @@ linkedin_url:  				"http://linkedin.com"
 # Theme Settings
 theme_disqus_shortname: 	"koto"
 theme_google_comments: 		false
-theme_analytics_id: 		"UA-28282324-1"
+theme_analytics_id: 		"UA-28282324-X"
 theme_analytics_domain: 	"kotojs.org"
 theme_reading_time: 		true
 theme_autoload_comments: 	false
