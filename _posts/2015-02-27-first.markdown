@@ -1,0 +1,10 @@
+---
+layout:     post
+title:      "My First Blog Post"
+subtitle:   "More posts coming soon!"
+date:       2015-02-27 12:00:00
+author:     "Nick Randall"
+---
+
+# We've got a blog!
+More posts coming soon!
