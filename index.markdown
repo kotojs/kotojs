@@ -4,7 +4,7 @@ description:   "A d3 chart framework for reusable charts"
 ---
 
 #Kotojs
-**koto.js** is a [d3.js](d3js.org) charting framework written in ES6, the latest iteration of javascript. This framework is based heavily on [d3.chart](), another d3 charting framework.
+**koto.js** is a [d3.js](http://www.d3js.org) charting framework written in ES6, the latest iteration of javascript. This framework is based heavily on [d3.chart](http://misoproject.com/d3-chart/), another d3 charting framework.
 
 ## Introduction
 Coming soon. Here I'll talk about what prompted me to write this library and what my goals are.
