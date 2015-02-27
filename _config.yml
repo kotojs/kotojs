@@ -3,7 +3,7 @@ title: Kotojs
 header-img: img/home-bg.jpg
 email: info@kotojs.org
 description: "A d3 chart framework for reusable charts"
-baseurl: "/kotojs"
+baseurl: ""
 url: "http://kotojs.org"
 twitter_username: kotojs
 github_username:  "nicksrandall/kotojs"
