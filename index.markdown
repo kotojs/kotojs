@@ -9,7 +9,7 @@ description:   "A d3 chart framework for reusable charts"
 ## Introduction
 Coming soon. Here I'll talk about what prompted me to write this library and what my goals are.
 
-{% highlight javascript %}
+{% highlight javascript linenos %}
 koto.chart('BarChart', function (Chart) {
 	class BarChart extends Chart {
 		constructor(){
@@ -28,13 +28,13 @@ koto.chart('BarChart', function (Chart) {
 ### Install
 You can install koto via [bower](http://bower.io) by running:
 
-{% highlight shell %}
+{% highlight bash %}
 $ bower install koto --save
 {% endhighlight %}
 
 or via [npm](http://www.npmjs.com) by running:
 
-{% highlight shell %}
+{% highlight bash %}
 $ npm install koto --save
 {% endhighlight %}
 
@@ -48,7 +48,7 @@ Build requirements:
 - [gulp](http://gulpjs.com/)
 
 
-{% highlight shell %}
+{% highlight bash %}
 $ npm install
 $ gulp build
 {% endhighlight %}
