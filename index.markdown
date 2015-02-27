@@ -27,13 +27,16 @@ koto.chart('BarChart', function (Chart) {
 
 ### Install
 You can install koto via [bower](http://bower.io) by running:
-```bash
+
+{% highlight shell %}
 $ bower install koto --save
-```
+{% endhighlight %}
+
 or via [npm](http://www.npmjs.com) by running:
-```bash
+
+{% highlight shell %}
 $ npm install koto --save
-```
+{% endhighlight %}
 
 ## Documentation
 Browse the [Wiki](https://github.com/nicksrandall/kotojs/wiki/API-Documentation).
@@ -45,10 +48,10 @@ Build requirements:
 - [gulp](http://gulpjs.com/)
 
 
-```js
+{% highlight shell %}
 $ npm install
 $ gulp build
-```
+{% endhighlight %}
 
 ## Acknowledgements
 This project is **HEAVILY** inspired by the awesome work done by @jugglinmike and @iros and their charting framework called [d3.chart](https://github.com/misoproject/d3.chart).
