@@ -1,25 +1,23 @@
 ---
 layout:     page
-description:   "A d3 chart framework for reusable charts"
+description:   "A d3 framework for reusable charts"
 ---
 
 #Kotojs
-**koto.js** is a [d3.js](http://www.d3js.org) charting framework written in ES6, the latest iteration of javascript. This framework is based heavily on [d3.chart](http://misoproject.com/d3-chart/), another d3 charting framework.
+**koto.js** is a [d3.js](http://www.d3js.org) charting framework written in ES6, the latest iteration of javascript.
 
 ## Introduction
 Coming soon. Here I'll talk about what prompted me to write this library and what my goals are.
 
-{% highlight javascript linenos %}
-koto.chart('BarChart', function (Chart) {
-	class BarChart extends Chart {
-		constructor(){
-			// setup chart
-		}
-		preDraw(data) {
-			// Do something before draw
-		}
+{% highlight javascript %}
+koto.BarChart = class extends koto.Base {
+	constructor(){
+		// setup chart
 	}
-});
+	preDraw(data) {
+		// Do something before draw
+	}
+}
 {% endhighlight %}
 
 ## Getting Started
@@ -41,10 +39,14 @@ $ npm install koto --save
 ## Documentation
 Browse the [Wiki](https://github.com/nicksrandall/kotojs/wiki/API-Documentation).
 
+### Example Charts
+* [Icicle Chart (github)](https://github.com/nicksrandall/koto.Icicle)
+* More coming soon
+
 ## Build Instructions
 Build requirements:
 
-- [iojs](https://iojs.org/en/index.html)
+- [iojs](https://iojs.org/en/index.html) or [node 0.10+](http://www.nodejs.org)
 - [gulp](http://gulpjs.com/)
 
 
