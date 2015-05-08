@@ -46,7 +46,7 @@ Browse the [Wiki](https://github.com/nicksrandall/kotojs/wiki/API-Documentation)
 ## Build Instructions
 Build requirements:
 
-- [iojs](https://iojs.org/en/index.html) or [node 0.10+](http://www.nodejs.org)
+- [iojs](https://iojs.org/en/index.html)
 - [gulp](http://gulpjs.com/)
 
 
