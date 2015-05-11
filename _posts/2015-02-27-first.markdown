@@ -7,7 +7,7 @@ author:     "Nick Randall"
 ---
 
 ## What is ES6?
-ES6 is a term (now outdated) to describle the latest iteration of the programing language commonly called JavaScript. The more technical term is ECMAScript 2015. Features listed in ES6 are slowly making their way into moddern browsers and in fact, the latest version of Chrome Browser supports all the ES6 features that this framework uses naitivly (with the exception of modules). With that said, we can not assume that every user of this framework will have support for ES6 so we use a tool to compile our code back to ES5. In many ways, ES6 feels like a "compile to" language like coffee script because it must be compiled for it to be used on most browsers. The benefit of ES6 is that it is standards based and has the "hope" of one day not needing to be compiled anymore.
+ES6 is a term (now outdated) to describle the latest iteration of the programing language commonly called JavaScript. The more technical term is ECMAScript 2015. Features listed in ES6 are slowly making their way into moddern browsers and in fact, the latest version of Chrome Browser supports all the ES6 features that this framework uses natively (with the exception of modules). With that said, we can not assume that every user of this framework will have support for ES6 so we use a tool to compile our code back to ES5. In many ways, ES6 feels like a "compile to" language like coffee script because it must be compiled for it to be used on most browsers. The benefit of ES6 is that it is standards based and has the "hope" of one day not needing to be compiled anymore.
 
 ## Why use it now?
 There are 4 main features in ES6 that have made developing this framework much easier. 

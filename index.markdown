@@ -51,7 +51,7 @@ barChart.draw(data);
 ### How is it different than d3.chart?
 
 #### ES6 (ECMAScript 2015)
-For starters, this entire framework is written in ES6 (ECMAScript 2015). This allows us to use classes as the base structure for widgets and use the syntatic sugur for authoring classes that has added in the latest version of the language commonly called JavaScript. This framework also utilizes Maps and Sets (another feature recently added to JS). The library has been compiled back to ES5 (using babel) and it has listed an ES6 polyfill as a dependency so legacy browsers should be able to use it just fine.
+For starters, this entire framework is written in ES6 (ECMAScript 2015). This allows us to use classes as the base structure for widgets and use the syntatic sugar for authoring classes that has added in the latest version of the language commonly called JavaScript. This framework also utilizes Maps and Sets (another feature recently added to JS). The library has been compiled back to ES5 (using babel) and it has listed an ES6 polyfill as a dependency so legacy browsers should be able to use it just fine.
 
 #### Common API for getting and setting configurable options.
 In d3.chart, it is a common practice to have each configurable option (ex. Height, Widgth, fill) to have its own getter and setter method attached to the chart. This practice is suggested by Mike Bostock (creator of D3) and generally a good thing. For my own personal use case of this framework, I need the abily to store all the configs to a single object and so I found it much easier to have a common API for getting and setting config items like so:
