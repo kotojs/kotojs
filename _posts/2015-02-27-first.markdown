@@ -1,10 +1,65 @@
 ---
 layout:     post
-title:      "My First Blog Post"
-subtitle:   "More posts coming soon!"
-date:       2015-02-27 12:00:00
+title:      "Why ES6?"
+subtitle:   "A quick investigation of the pros and cons."
+date:       2015-05-11 12:00:00
 author:     "Nick Randall"
 ---
 
-# We've got a blog!
-More posts coming soon!
+## What is ES6?
+ES6 is a term (now outdated) to describle the latest iteration of the programing language commonly called JavaScript. The more technical term is ECMAScript 2015. Features listed in ES6 are slowly making their way into moddern browsers and in fact, the latest version of Chrome Browser supports all the ES6 features that this framework uses naitivly (with the exception of modules). With that said, we can not assume that every user of this framework will have support for ES6 so we use a tool to compile our code back to ES5. In many ways, ES6 feels like a "compile to" language like coffee script because it must be compiled for it to be used on most browsers. The benefit of ES6 is that it is standards based and has the "hope" of one day not needing to be compiled anymore.
+
+## Why use it now?
+There are 4 main features in ES6 that have made developing this framework much easier. 
+
+* Modules
+  ES6 has introduced a concept of modules into the specification of the language. The ES6 module syntax is simular it CommonJS syntax but uses an `import [variable] from [file]` syntax rather than `var [variable] = require([file]);`; This has made it easy to separate the framework into multiple files that reference each other when needed. Ultimately, all of the files are concatinated together and wrapped in a UMD module and served that way so that the framework can be used in by many budlers/asset mangaers. 
+
+* Classes
+  Support for 'Classes' in JavaScript is a little misleading because it doen't actually add any new functionality to the language. It simply has added some syntatic sugar to the language so that writting classes (constructors) is much simpler. Where the syntatic sugar really shines is in defining inheritance. Creating a 'class' that extends another 'class' in ES5 javascript is tedious and verbose. Classes are the core of this framework and ES6 has made them much easier to work with.
+
+* Maps/Sets
+  Maps and Sets are alot like JavaScript objects in that they can store key value pairs (or just values in the case of Set) but they have a nice API wrapper around them that make get/setting values much easier to work with.
+
+* Template Strings
+  A common practice in Javascript is joining text with a value from a variable. Typically this is done with string concatination and ES6 has made that much easier with a syntax that looks like this: ``` var greeting = `Welcome ${name}`; ```.
+
+## Whats the down-side?
+* Your code has to be compiled
+  This makes it difficult to author something with KotoJS on the fly. I have written some convience methods to make this less painful but I would still consider that a down-side.
+
+  ### Example
+  Let's say that you've brought in a chart that you'd like to extend before using and you'd like to be able to do that on the fly, and not have to add a compile step to your workflow. To accomplish that, you would need to do something like this: 
+
+
+  {% highlight javascript %}
+  var ExtendedChart = BarChart.extend(function initialize() {
+    // This function will be run after `BarChart` has been initialzied
+    // The `this` context will become an instance of `BarChart`
+
+    // Do something to extend this chart like:
+    // Add layer/remove layers
+    // Change transform function;
+
+    // Note: this will return a new constructor (class);
+  });
+
+  // -or-
+  // Pass an object with the properties you'd like to over-ride;
+  var ExtendedChart = BarChart.extend({
+      initialize: function initialize() {
+      // This function will be run after `BarChart` has been initialzied
+      // The `this` context will become an instance of `BarChart`
+
+      // Do something to extend this chart like:
+      // Add layer/remove layers
+      // Change transform function;
+    },
+    transform: function transform () {
+      // over-ride the transform function
+    }
+  });
+  {% endhighlight %}
+
+## Stay Tuned...
+This post isn't finished yet but I'm getting too tired to finish so I'll be back to add more later. 
