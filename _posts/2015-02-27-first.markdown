@@ -2,7 +2,6 @@
 layout: post
 title: "Why ES6?"
 subtitle: A quick investigation of the pros and cons.
-date: {}
 author: Nick Randall
 published: true
 ---
