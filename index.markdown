@@ -49,6 +49,7 @@ barChart.draw(data);
 {% endhighlight %}
 
 ### How is it different than d3.chart?
+
 #### ES6 (ECMAScript 2015)
 For starters, this entire framework is written in ES6 (ECMAScript 2015). This allows us to use classes as the base structure for widgets and use the syntatic sugur for authoring classes that has added in the latest version of the language commonly called JavaScript. This framework also utilizes Maps and Sets (another feature recently added to JS). The library has been compiled back to ES5 (using babel) and it has listed an ES6 polyfill as a dependency so legacy browsers should be able to use it just fine.
 
