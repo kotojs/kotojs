@@ -92,6 +92,7 @@ barChart
   .accessor({
     name: function(d) { return d.country; },
     value: function(d) { return d.population; }
+  })
   .draw(data);
 {% endhighlight %}
 
