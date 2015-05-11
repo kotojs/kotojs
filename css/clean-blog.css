@@ -16,6 +16,9 @@ p {
 p a {
   text-decoration: underline;
 }
+p img {
+  margin: auto;
+}
 h1,
 h2,
 h3,
