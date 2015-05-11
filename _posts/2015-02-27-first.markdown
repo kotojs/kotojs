@@ -7,14 +7,14 @@ author:     "Nick Randall"
 ---
 
 ## What is ES6?
-ES6 is a term (now outdated) to describle the latest iteration of the programing language commonly called JavaScript. The more technical term is ECMAScript 2015. Features listed in ES6 are slowly making their way into moddern browsers and in fact, the latest version of Chrome Browser supports all the ES6 features that this framework uses natively (with the exception of modules). With that said, we can not assume that every user of this framework will have support for ES6 so we use a tool to compile our code back to ES5. In many ways, ES6 feels like a "compile to" language like coffee script because it must be compiled for it to be used on most browsers. The benefit of ES6 is that it is standards based and has the "hope" of one day not needing to be compiled anymore.
+ES6 is a term (now outdated) to describle the latest iteration of the programing language commonly called JavaScript. The more technical term is ECMAScript 2015. Features listed in ES6 are slowly making their way into moddern browsers and in fact, the latest version of Chrome Browser supports all the ES6 features that this framework uses natively (with the exception of modules). With that said, we can not assume that every user of this framework will have support for ES6 so we use a tool to compile our code back to ES5. In many ways, ES6 feels like a "compile to" language like CoffeeScript because it must be compiled for it to be used on most browsers. The benefit of ES6 is that it is standards based and has the "hope" of one day not needing to be compiled anymore.
 
 ## Why use it now?
 There are 4 main features in ES6 that have made developing this framework much easier. 
 
 * Modules
 
-  ES6 has introduced a concept of modules into the specification of the language. The ES6 module syntax is simular it CommonJS syntax but uses an `import [variable] from [file]` syntax rather than `var [variable] = require([file]);`; This has made it easy to separate the framework into multiple files that reference each other when needed. Ultimately, all of the files are concatinated together and wrapped in a UMD module and served that way so that the framework can be used in by many budlers/asset mangaers. 
+  ES6 has introduced a concept of modules into the specification of the language. The ES6 module syntax is simular it CommonJS syntax but uses an `import [variable] from [file]` syntax rather than `var [variable] = require([file]);`. This has made it easy to separate the framework into multiple files that reference each other when needed. Ultimately, all of the files are concatenated together and wrapped in a UMD module and served that way so that the framework can be used in by many bundlers/asset mangaers. 
 
 * Classes
 
@@ -22,16 +22,16 @@ There are 4 main features in ES6 that have made developing this framework much e
 
 * Maps/Sets
 
-  Maps and Sets are alot like JavaScript objects in that they can store key value pairs (or just values in the case of Set) but they have a nice API wrapper around them that make get/setting values much easier to work with.
+  Maps and Sets are alot like JavaScript objects in that they can store key value pairs (or just values in the case of Set) but they have a nice API wrapper around them that make getting/setting values much easier to work with.
 
 * Template Strings
 
-  A common practice in Javascript is joining text with a value from a variable. Typically this is done with string concatination and ES6 has made that much easier with a syntax that looks like this: ``` var greeting = `Welcome ${name}`; ```.
+  A common practice in Javascript is joining text with a value from a variable. Typically this is done with string concatenation and ES6 has made that much easier with a syntax that looks like this: ``` var greeting = `Welcome ${name}`; ```.
 
 ## Whats the down-side?
 
 * Your code has to be compiled
-  This makes it difficult to author something with KotoJS on the fly. I have written some convience methods to make this less painful but I would still consider that a down-side.
+  This makes it difficult to author something with KotoJS on the fly. I have written some convenience methods to make this less painful but I would still consider that a down-side.
 
   ### Example
   Let's say that you've brought in a chart that you'd like to extend before using and you'd like to be able to do that on the fly, and not have to add a compile step to your workflow. To accomplish that, you would need to do something like this: 
