@@ -13,18 +13,23 @@ ES6 is a term (now outdated) to describle the latest iteration of the programing
 There are 4 main features in ES6 that have made developing this framework much easier. 
 
 * Modules
+
   ES6 has introduced a concept of modules into the specification of the language. The ES6 module syntax is simular it CommonJS syntax but uses an `import [variable] from [file]` syntax rather than `var [variable] = require([file]);`; This has made it easy to separate the framework into multiple files that reference each other when needed. Ultimately, all of the files are concatinated together and wrapped in a UMD module and served that way so that the framework can be used in by many budlers/asset mangaers. 
 
 * Classes
+
   Support for 'Classes' in JavaScript is a little misleading because it doen't actually add any new functionality to the language. It simply has added some syntatic sugar to the language so that writting classes (constructors) is much simpler. Where the syntatic sugar really shines is in defining inheritance. Creating a 'class' that extends another 'class' in ES5 javascript is tedious and verbose. Classes are the core of this framework and ES6 has made them much easier to work with.
 
 * Maps/Sets
+
   Maps and Sets are alot like JavaScript objects in that they can store key value pairs (or just values in the case of Set) but they have a nice API wrapper around them that make get/setting values much easier to work with.
 
 * Template Strings
+
   A common practice in Javascript is joining text with a value from a variable. Typically this is done with string concatination and ES6 has made that much easier with a syntax that looks like this: ``` var greeting = `Welcome ${name}`; ```.
 
 ## Whats the down-side?
+
 * Your code has to be compiled
   This makes it difficult to author something with KotoJS on the fly. I have written some convience methods to make this less painful but I would still consider that a down-side.
 
