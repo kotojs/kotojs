@@ -1,10 +1,13 @@
 ---
-layout:     post
-title:      "Why ES6?"
-subtitle:   "A quick investigation of the pros and cons."
-date:       2015-05-11 12:00:00
-author:     "Nick Randall"
+layout: post
+title: "Why ES6?"
+subtitle: A quick investigation of the pros and cons.
+date: {}
+author: Nick Randall
+published: true
 ---
+
+![Why is this a good thing?](/http://38.media.tumblr.com/83bfb043d548d5a493ef7d117219d569/tumblr_ncrt6yhcDS1s373hwo1_400.gif)
 
 ## What is ES6?
 ES6 is a term (now outdated) to describle the latest iteration of the programing language commonly called JavaScript. The more technical term is ECMAScript 2015. Features listed in ES6 are slowly making their way into moddern browsers and in fact, the latest version of Chrome Browser supports all the ES6 features that this framework uses natively (with the exception of modules). With that said, we can not assume that every user of this framework will have support for ES6 so we use a tool to compile our code back to ES5. In many ways, ES6 feels like a "compile to" language like CoffeeScript because it must be compiled for it to be used on most browsers. The benefit of ES6 is that it is standards based and has the "hope" of one day not needing to be compiled anymore.
@@ -67,4 +70,4 @@ There are 4 main features in ES6 that have made developing this framework much e
   {% endhighlight %}
 
 ## Stay Tuned...
-This post isn't finished yet but I'm getting too tired to finish so I'll be back to add more later. 
+This post isn't finished yet but I'm getting too tired to finish so I'll be back to add more later.
