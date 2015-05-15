@@ -53,6 +53,9 @@ barChart.draw(data);
 #### ES6 (ECMAScript 2015)
 For starters, this entire framework is written in ES6 (ECMAScript 2015). This allows us to use classes as the base structure for widgets and use the syntatic sugar for authoring classes that has added in the latest version of the language commonly called JavaScript. This framework also utilizes Maps and Sets (another feature recently added to JS). The library has been compiled back to ES5 (using babel) and it has listed an ES6 polyfill as a dependency so legacy browsers should be able to use it just fine.
 
+#### Modules (UMD)
+I'm a big believer in modules. With KotoJS, all your components are exported as a [UMD (Universal Module Definition)](https://github.com/umdjs/umd) module so that they can be integrated with several bundlers/asset managers. So, if you like using CommonJS, or AMD, or nothing at all, these widgets will work exactly like you'd expect them to. I've tested them with bundlers like RequireJS, Webpack, and Browserify so I'm confident that koto can be easily integrated into most projects. 
+
 #### Common API for getting and setting configurable options.
 In d3.chart, it is a common practice to have each configurable option (ex. Height, Widgth, fill) to have its own getter and setter method attached to the chart. This practice is suggested by Mike Bostock (creator of D3) and generally a good thing. For my own personal use case of this framework, I need the abily to store all the configs to a single object and so I found it much easier to have a common API for getting and setting config items like so:
 
@@ -146,6 +149,9 @@ Build requirements:
 $ npm install
 $ gulp build
 {% endhighlight %}
+
+## Community
+The goal is to have a large library of pre-built widgets using this framework open sourced and available for all to use. I'm still thinking through the details but be expecting something to be released soon. If you'd like to contribute a widget (or 2 or 43), I'd welcome the support. 
 
 ## Acknowledgements
 This project is **HEAVILY** inspired by the awesome work done by @jugglinmike and @iros and their charting framework called [d3.chart](https://github.com/misoproject/d3.chart).
