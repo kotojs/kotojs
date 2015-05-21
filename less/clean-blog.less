@@ -473,7 +473,19 @@ p.description {
 	font-size: 14px;
 }
 
+.affix {
+  position: static;
+}
+@media (min-width: 992px) {
+  .affix {
+	  position: fixed;
+	}
+}
+
 nav.side-nav {
+	font-weight: 300;
+	top: 30px;
+	font-size: 16px;
 	label {
 		font-size: 20px;
 		font-weight: 600;
@@ -482,9 +494,6 @@ nav.side-nav {
 		font-size: 18px;
 		font-weight: 400;
 	}
-	font-weight: 300;
-	top: 30px;
-	font-size: 16px;
 }
 
 nav {
@@ -504,6 +513,11 @@ code {
 	border-radius: 2px;
 	background-color: transparent;
 	border-radius: 0;
+	font-weight: 600;
+}
+
+code.language-javascript {
+	font-weight: 400;
 }
 
 .category-section {

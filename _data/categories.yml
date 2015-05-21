@@ -62,10 +62,10 @@ documentation:
       name: insert
       url: layerinsert
     - 
-      name: on
+      name: 'on'
       url: layeronstring-event-function-handler-chart-chart
     - 
-      name: off
+      name: 'off'
       url: layeroffstring-name
     - 
       name: draw
