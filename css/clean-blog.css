@@ -5,7 +5,7 @@
  */
 
 body {
-  font-family: 'Lora', 'Times New Roman', serif;
+  font-family: 'Open Sans', sans-serif;
   font-size: 20px;
   color: #555555;
 }
@@ -26,7 +26,7 @@ h4,
 h5,
 h6 {
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-weight: 800;
+  font-weight: 700;
 }
 a {
   color: #555555;
@@ -158,6 +158,9 @@ hr.small {
   .intro-header .page-heading {
     padding: 150px 0;
   }
+}
+.intro-header .site-small-heading {
+  height: 60px;
 }
 .intro-header .site-heading,
 .intro-header .page-heading {
@@ -403,4 +406,58 @@ img::-moz-selection {
 }
 body {
   webkit-tap-highlight-color: #0085a1;
+}
+p.description {
+  margin: 0 0;
+  font-size: 14px;
+}
+nav.side-nav {
+  font-weight: 300;
+  top: 30px;
+  font-size: 16px;
+}
+nav.side-nav label {
+  font-size: 20px;
+  font-weight: 600;
+}
+nav.side-nav li.main > a {
+  font-size: 18px;
+  font-weight: 400;
+}
+nav ul.nav.menu {
+  list-style: none;
+  padding-left: 15px;
+}
+nav ul.nav.menu a {
+  padding: 0 15px;
+}
+code {
+  font-family: 'Source Code Pro';
+  color: #555;
+  border: 1px solid #f2f2f2;
+  border-radius: 2px;
+  background-color: transparent;
+  border-radius: 0;
+}
+.category-section {
+  font-size: 16px;
+}
+.category-section h3 {
+  font-family: 'Source Code Pro';
+}
+.category-section h3,
+.category-section h4,
+.category-section h5,
+.category-section h6 {
+  margin: 25px 0 10px;
+}
+.category-section p {
+  margin: 15px 0 0;
+}
+.category-section blockquote {
+  color: #8a8d8f;
+  font-size: 16px;
+}
+.category-section blockquote > p {
+  margin: 0 0;
 }

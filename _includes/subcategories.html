@@ -1,0 +1,17 @@
+{% for category in site.data.categories %}
+  <label>{{category[0]}}</label>
+  <ul class="nav menu main">
+    {% for subcategory in category[1] %}
+    <li class="menu-item main">
+      <a href="/{{category[0]}}/{{subcategory[0] | slugify}}">{{subcategory[0]}}</a>
+      <ul class="nav menu">
+        {% for tag in subcategory[1] %}
+        <li class="menu-item">
+          <a href="/{{category[0]}}/{{subcategory[0] | slugify}}#{{tag.url}}">{{tag.name}}</a>
+        </li>
+        {% endfor %}
+      </ul>
+    </li>
+    {% endfor %}
+  </ul>
+{% endfor %}

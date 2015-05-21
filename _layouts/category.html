@@ -1,0 +1,40 @@
+---
+layout: default
+---
+
+<!-- Page Header -->
+<header class="intro-header">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="site-small-heading"></div>
+      </div>
+    </div>
+  </div>
+</header>
+<!-- Main Content -->
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <nav id="navbar" class="side-nav" data-spy="affix" data-offset-top="60">
+        {% include subcategories.html %}
+      </nav>
+    </div>
+    <div class="col-md-9">
+        {% assign docs = site.docs %}
+        {% for doc in docs %}
+          {% capture slug %}{{ doc.url | replace:'.html','' | replace:'/docs/','' }}{% endcapture %}
+          {% if slug == page.subcategory %}
+            <div class="category-section">
+                <h2 id="{{slug}}">{{doc.title}}</h2>
+                <p class="description">{{ doc.description }}</p>
+                <hr>
+                {{doc.content}}
+            </div>
+          {% endif %}
+        {% endfor %}
+    </div>
+  </div>
+</div>
+
+<hr>

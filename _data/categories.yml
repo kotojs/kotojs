@@ -1,0 +1,72 @@
+documentation:
+  koto:
+    - 
+      name: constructor
+      url: kotoconstructord3selection-container
+    - 
+      name: transform
+      url: kototransformarray--object-data
+    - 
+      name: demux
+      url: kotodemuxstring-name-array-data
+    - 
+      name: preDraw
+      url: kotopredrawarray-data
+    - 
+      name: postDraw
+      url: kotopostdrawarray-data
+    - 
+      name: postTransition
+      url: kotoposttransitionarray-data
+    - 
+      name: layer
+      url: kotolayername-selection-options
+    - 
+      name: unlayer
+      url: kotounlayerstring-name
+    - 
+      name: attach
+      url: kotoattachstring-name-chart-instance-chart
+    - 
+      name: draw
+      url: kotodrawarray--object-data
+    - 
+      name: 'on'
+      url: kotoonstring-name-function-callback-object-context
+    - 
+      name: once
+      url: kotooncestring-name-function-callback-object-context
+    - 
+      name: 'off'
+      url: kotooffstring-name-function-callback-object-context
+    - 
+      name: trigger
+      url: kototriggerstring-name-args
+    - 
+      name: config
+      url: kotoconfigname-value
+    - 
+      name: accessor
+      url: kotoaccessorname-value
+    - 
+      name: extend
+      url: static-kotoextendfunction--object-init
+  layer:
+    - 
+      name: Koto.layer
+      url: kotolayername-selection-options
+    - 
+      name: dataBind
+      url: layerdatabindarray-data
+    - 
+      name: insert
+      url: layerinsert
+    - 
+      name: on
+      url: layeronstring-event-function-handler-chart-chart
+    - 
+      name: off
+      url: layeroffstring-name
+    - 
+      name: draw
+      url: layerdrawarray-data

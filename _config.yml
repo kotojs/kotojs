@@ -11,8 +11,13 @@ facebook_username:  kotojs
 
 # Build settings
 markdown: kramdown
-highlighter: pygments
+highlighter: rouge
 permalink: pretty
 paginate: 5
 paginate_path: "/blog/page:num/"
 exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
+
+# Collections
+collections:
+  docs:
+    output: true

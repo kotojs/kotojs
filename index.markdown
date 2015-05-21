@@ -1,6 +1,6 @@
 ---
-layout:     page
-description:   "A d3 framework for reusable charts"
+layout: page
+description: "A d3 framework for reusable charts"
 ---
 
 #Kotojs
