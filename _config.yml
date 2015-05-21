@@ -11,7 +11,7 @@ facebook_username:  kotojs
 
 # Build settings
 markdown: kramdown
-highlighter: rouge
+highlighter: pygments
 permalink: pretty
 paginate: 5
 paginate_path: "/blog/page:num/"
