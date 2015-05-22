@@ -407,10 +407,6 @@ img::-moz-selection {
 body {
   webkit-tap-highlight-color: #0085a1;
 }
-p.description {
-  margin: 0 0;
-  font-size: 14px;
-}
 .affix {
   position: static;
 }
@@ -435,6 +431,7 @@ nav.side-nav li.main > a {
 nav ul.nav.menu {
   list-style: none;
   padding-left: 15px;
+  margin-bottom: 15px;
 }
 nav ul.nav.menu a {
   padding: 0 15px;
@@ -445,26 +442,36 @@ code {
   border: 1px solid #f2f2f2;
   border-radius: 2px;
   background-color: transparent;
-  border-radius: 0;
+  border-radius: 3;
   font-weight: 600;
+  font-style: normal;
 }
 code.language-javascript {
+  margin-top: 15px;
   font-weight: 400;
+  border: none;
 }
 .category-section {
   font-size: 16px;
 }
 .category-section h3 {
+  margin: 50px 0 10px;
   font-family: 'Source Code Pro';
+  border-bottom: 1px solid #e5e5e5;
+  padding-bottom: 6px;
 }
-.category-section h3,
 .category-section h4,
 .category-section h5,
 .category-section h6 {
   margin: 25px 0 10px;
 }
 .category-section p {
-  margin: 15px 0 0;
+  margin: 15px 0 5px;
+}
+.category-section p.description {
+  margin: 0 0;
+  padding: 0;
+  font-size: 16px;
 }
 .category-section blockquote {
   color: #8a8d8f;
@@ -472,4 +479,10 @@ code.language-javascript {
 }
 .category-section blockquote > p {
   margin: 0 0;
+}
+.category-section blockquote code {
+  font-style: normal;
+}
+.category-section .highlight {
+  margin: 15px 0 5px;
 }

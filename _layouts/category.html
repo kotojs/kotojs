@@ -24,14 +24,14 @@ layout: default
         {% assign docs = site.docs %}
         {% for doc in docs %}
           {% capture slug %}{{ doc.url | replace:'.html','' | replace:'/docs/','' }}{% endcapture %}
-          {% if slug == page.subcategory %}
+          
             <div class="category-section">
                 <h2 id="{{slug}}">{{doc.title}}</h2>
                 <p class="description">{{ doc.description }}</p>
                 <hr>
                 {{doc.content}}
             </div>
-          {% endif %}
+          
         {% endfor %}
     </div>
   </div>

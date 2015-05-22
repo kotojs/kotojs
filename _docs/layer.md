@@ -3,15 +3,16 @@ title: Layer
 description: The layer class.
 ---
 
-## Koto.layer(name, selection, options)
+### Koto.layer(name, selection, options)
 The Layer class is used internally by the `Koto.layer` method to create and attach layers to charts. The `selection` and `options` parameters are passed into the layer constructor to create a new layer.
 
-## Parameters
+#### Parameters
 * **name** - {string} the name of your new layer.
 * **selection** - {d3Selection} the container for this new layer
 * **options** - {object} object must include a `dataBind` method AND an `insert` method. Optionally, you can include an 'events' object with keys that are the layer's 'life-cycle' events
 
-**Returns** Layer instance
+**Returns:** Layer instance
+
 {% highlight javascript %}
 // basic example
 class KotoChartName extends Koto {
@@ -68,7 +69,7 @@ class KotoChartName extends Koto {
 
 > **Note:** You will never instantiate a new 'Layer' instance directly, you'll use the `Koto.layer` method to create a new layer instance.
 
-## Layer.dataBind(array data)
+### Layer.dataBind(array data)
 This method is invoked by the `Layer.draw` method which is invoked by the `Koto.draw` method. The purpose of this function is to join data to the layer's DOM nodes. This method must be overwritten for each layer instance.
 
 **The `this` context of the function is the layers base selection.**
@@ -95,7 +96,7 @@ class KotoChartName extends Koto {
 {% endhighlight %}
 
 
-## Layer.insert()
+### Layer.insert()
 This method is invoked by the `Layer.draw` method which is invoked by the `Koto.draw` method. The purpose of this function is to insert missing DOM nodes based on the data. This method must be overwritten for each layer instance.
 
 **The `this` context of this function is the 'enter' selection of the 'data bound' selection returned by `dataBind` method.**
@@ -122,7 +123,7 @@ class KotoChartName extends Koto {
 {% endhighlight %}
 
 
-## Layer.on(string event, function handler[, Chart chart])
+### Layer.on(string event, function handler[, Chart chart])
 Subscribe a handler to a "lifecycle event". These events (and only these events) are triggered when `Layer#draw` is invoked. More information on 'life-cycle events' will follow.
 
 {% highlight javascript %}
@@ -168,7 +169,7 @@ Also, subscribe handlers to a 'life-cycle' event's *transition* selection by att
 
 For more information on 'life-cycle' events see this blog (post.)[http://bost.ocks.org/mike/join/]
 
-## Layer.off([string name])
+### Layer.off([string name])
 Unsubscribe the specified handler from the specified event. If no handler is supplied, remove *all* handlers from the event.
 
 {% highlight javascript %}
@@ -189,16 +190,16 @@ layer.draw(data);
 {% endhighlight %}
 
 
-## Layer.draw(array data)
+### Layer.draw(array data)
 Render the layer according to the input data:
 
-## Process
+#### Process
 * Bind the data to the layer (according to `Layer#dataBind`), 
 * insert new elements (according to `Layer#insert`), 
 * make lifecycle selections, 
 * invoke all relevant handlers (as attached via `Layer#on`) with the lifecycle selections.
 
-## Life-cycle events order
+#### Life-cycle events order
 1. update
 2. update:transition
 3. enter

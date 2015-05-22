@@ -468,11 +468,6 @@ body {
 	webkit-tap-highlight-color: @brand-primary;
 }
 
-p.description {
-	margin: 0 0;
-	font-size: 14px;
-}
-
 .affix {
   position: static;
 }
@@ -500,6 +495,7 @@ nav {
 	ul.nav.menu {
 		list-style: none;
 		padding-left: 15px;
+		margin-bottom: 15px;
 		a {
 			padding: 0 15px;
 		}
@@ -512,24 +508,35 @@ code {
 	border: 1px solid #f2f2f2;
 	border-radius: 2px;
 	background-color: transparent;
-	border-radius: 0;
+	border-radius: 3;
 	font-weight: 600;
+	font-style: normal;
 }
 
 code.language-javascript {
+	margin-top: 15px;
 	font-weight: 400;
+	border: none;
 }
 
 .category-section {
 	font-size: 16px;
 	h3 {
+		margin: 50px 0 10px;
 		font-family: 'Source Code Pro';
+		border-bottom: 1px solid #e5e5e5;
+		padding-bottom: 6px;
 	}
-	h3,h4,h5,h6 {
+	h4,h5,h6 {
 		margin: 25px 0 10px;
 	}
 	p {
-		margin: 15px 0 0;
+		margin: 15px 0 5px;
+	}
+	p.description {
+		margin: 0 0;
+		padding: 0;
+		font-size: 16px;
 	}
 	blockquote {
 		color: #8a8d8f;
@@ -537,5 +544,11 @@ code.language-javascript {
 		> p {
 			margin: 0 0;
 		}
+		code {
+			font-style: normal;
+		}
+	}
+	.highlight {
+		margin: 15px 0 5px;
 	}
 }
