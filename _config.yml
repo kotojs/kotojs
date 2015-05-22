@@ -1,6 +1,5 @@
 # Site settings
-title: Kotojs
-header-img: img/home-bg.jpg
+title: Koto
 email: info@kotojs.org
 description: "A d3 chart framework for reusable charts"
 baseurl: ""

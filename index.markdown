@@ -3,7 +3,7 @@ layout: page
 description: "A d3 framework for reusable charts"
 ---
 
-#Kotojs
+#Koto
 **koto.js** is a [d3.js](http://www.d3js.org) charting framework written in ES6, the latest iteration of javascript.
 
 ## Introduction
