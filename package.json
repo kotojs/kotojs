@@ -34,7 +34,7 @@
     "babel-core": "^5.8.25",
     "babel-loader": "^5.3.2",
     "babel-runtime": "^5.8.25",
-    "chai": "^2.0.0",
+    "chai": "^3.3.0",
     "coveralls": "^2.11.1",
     "fixmyjs": "^1.0.2",
     "husky": "^0.10.1",
