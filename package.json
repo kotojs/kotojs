@@ -1,7 +1,7 @@
 {
   "name": "koto",
   "version": "0.0.1",
-  "description": "",
+  "description": "A d3 chart framework written in ES6",
   "main": "./dist/commonjs/index.js",
   "scripts": {
     "test-ci": "NODE_ENV=test ./node_modules/karma/bin/karma start ./karma.conf.js --single-run --browsers PhantomJS,Firefox",
@@ -19,8 +19,15 @@
     "verify": "npm run fixmyjs; npm run jshint",
     "precommit": "npm run build-all && git add dist && npm test && npm run verify"
   },
-  "repository": {},
-  "author": "yetu",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kotojs/kotojs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kotojs/kotojs/issues"
+  },
+  "author": "Nick Randall <nick.randall@domo.com>",
+  "homepage": "http://kotojs.org",
   "license": "MIT",
   "devDependencies": {
     "babel": "^5.8.23",
