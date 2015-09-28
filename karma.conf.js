@@ -10,14 +10,11 @@ var preprocessors = {};
 preprocessors[entry] = ['webpack'];
 
 // pass all essential scripts to istanbul for coverage 
-webpackConfig.module.postLoaders = [
-  {
-    test: /\.js$/,
-    exclude: /(_spec|vendor|node_modules)/,
-    loader: 'istanbul-instrumenter'
-  }
-];
-
+webpackConfig.module.postLoaders = [{
+  test: /\.js$/,
+  exclude: /(\.spec.js|vendor|node_modules)/,
+  loader: 'istanbul-instrumenter'
+}];
 
 module.exports = function (config) {
   config.set({
