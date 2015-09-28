@@ -66,6 +66,7 @@
   "node"          : true,
   "mocha"         : true,
   "globals": {
+    "ON_TEST": false,
     "define" : false,
     "expect": false,
     "it": false,
