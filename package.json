@@ -1,0 +1,67 @@
+{
+  "name": "koto",
+  "version": "0.0.1",
+  "description": "",
+  "main": "./dist/commonjs/index.js",
+  "scripts": {
+    "test-ci": "NODE_ENV=test ./node_modules/karma/bin/karma start ./karma.conf.js --single-run --browsers PhantomJS,Firefox",
+    "test": "NODE_ENV=test ./node_modules/karma/bin/karma start ./karma.conf.js --single-run",
+    "tdd": "NODE_ENV=test ./node_modules/karma/bin/karma start ./karma.conf.js",
+    "js-files": "find . -name '*.js' ! -path './node_modules/*' ! -path './coverage/*' ! -path './dist/*' ! -path './jspm_packages'",
+    "jshint": "node_modules/.bin/jshint `npm run -s js-files`",
+    "fixmyjs": "node_modules/.bin/fixmyjs --legacy `npm run -s js-files`",
+    "coveralls": "npm run test-ci && cat ./coverage/phantomjs/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
+    "build-commonjs": "./node_modules/.bin/babel src --out-dir dist/commonjs --source-maps --modules common",
+    "build-amd": "./node_modules/.bin/babel src --out-dir dist/amd --source-maps --modules amd",
+    "build-system": "./node_modules/.bin/babel src --out-dir dist/systemjs --source-maps --modules system",
+    "build-standalone": "./node_modules/.bin/webpack",
+    "build-all": "rm -rf ./dist && npm run build-commonjs && npm run build-amd && npm run build-system && npm run build-standalone",
+    "verify": "npm run fixmyjs; npm run jshint",
+    "precommit": "npm run build-all && git add dist && npm test && npm run verify"
+  },
+  "repository": {},
+  "author": "yetu",
+  "license": "MIT",
+  "devDependencies": {
+    "babel": "^5.8.23",
+    "babel-core": "^5.8.25",
+    "babel-loader": "^5.3.2",
+    "babel-runtime": "^5.8.25",
+    "chai": "^2.0.0",
+    "coveralls": "^2.11.1",
+    "fixmyjs": "^1.0.2",
+    "husky": "^0.10.1",
+    "install": "^0.1.8",
+    "istanbul": "^0.3.5",
+    "istanbul-instrumenter-loader": "^0.1.2",
+    "jshint": "^2.6.0",
+    "karma": "^0.13.10",
+    "karma-babel-preprocessor": "^5.2.2",
+    "karma-chai": "^0.1.0",
+    "karma-chrome-launcher": "^0.2.0",
+    "karma-coverage": "^0.5.2",
+    "karma-firefox-launcher": "^0.1.6",
+    "karma-mocha": "^0.2.0",
+    "karma-phantomjs-launcher": "^0.2.1",
+    "karma-safari-launcher": "^0.1.1",
+    "karma-sinon": "^1.0.4",
+    "karma-sinon-chai": "^1.1.0",
+    "karma-webpack": "^1.5.0",
+    "mocha": "^2.1.0",
+    "npm": "^3.3.4",
+    "polyfill-function-prototype-bind": "0.0.1",
+    "sinon": "^1.12.2",
+    "sinon-chai": "^2.7.0",
+    "webpack": "^1.6.0"
+  },
+  "jspm": {
+    "main": "./dist/system/index",
+    "format": "register",
+    "directories": {
+      "lib": "dist"
+    }
+  },
+  "dependencies": {
+    "d3": "^3.5.6"
+  }
+}

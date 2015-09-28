@@ -1,0 +1,35 @@
+{
+  "name": "koto",
+  "version": "0.0.47",
+  "authors": [
+    "Nick Randall <nick.randall@domo.com>"
+  ],
+  "description": "A d3 chart framework written in ES6",
+  "main": "dist/koto.js",
+  "moduleType": [
+    "amd",
+    "es6",
+    "globals",
+    "node"
+  ],
+  "keywords": [
+    "d3",
+    "chart",
+    "es6",
+    "visualization",
+    "koto"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/nicksrandall/kotojs",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "d3": "~3.5.5",
+    "babel-polyfill": "~0.0.1"
+  }
+}
