@@ -9,15 +9,14 @@
     "tdd": "NODE_ENV=test ./node_modules/karma/bin/karma start ./karma.conf.js",
     "js-files": "find . -name '*.js' ! -path './node_modules/*' ! -path './coverage/*' ! -path './dist/*' ! -path './jspm_packages'",
     "jshint": "node_modules/.bin/jshint `npm run -s js-files`",
-    "fixmyjs": "node_modules/.bin/fixmyjs --legacy `npm run -s js-files`",
     "coveralls": "npm run test-ci && node node_modules/lcov-filter/index.js ./coverage/phantomjs/lcov.info spec | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
-    "build-commonjs": "./node_modules/.bin/babel src --out-dir dist/commonjs --source-maps --modules common",
-    "build-amd": "./node_modules/.bin/babel src --out-dir dist/amd --source-maps --modules amd",
-    "build-system": "./node_modules/.bin/babel src --out-dir dist/systemjs --source-maps --modules system",
-    "build-standalone": "./node_modules/.bin/webpack",
-    "build-all": "rm -rf ./dist && npm run build-commonjs && npm run build-amd && npm run build-system && npm run build-standalone",
-    "verify": "npm run fixmyjs; npm run jshint",
-    "precommit": "npm run build-all && git add dist && npm test && npm run verify"
+    "build-commonjs": "NODE_ENV=production ./node_modules/.bin/babel src --out-dir dist/commonjs --source-maps --modules common",
+    "build-amd": "NODE_ENV=production ./node_modules/.bin/babel src --out-dir dist/amd --source-maps --modules amd",
+    "build-system": "NODE_ENV=production ./node_modules/.bin/babel src --out-dir dist/systemjs --source-maps --modules system",
+    "build-standalone": "NODE_ENV=production ./node_modules/.bin/webpack",
+    "build-all": "NODE_ENV=production rm -rf ./dist && npm run build-commonjs && npm run build-amd && npm run build-system && npm run build-standalone",
+    "build": "rm -rf ./dist && npm run build-standalone",
+    "precommit": "npm run build && git add dist && npm test && npm run jshint"
   },
   "repository": {
     "type": "git",

@@ -1,10 +1,12 @@
 var webpack = require('webpack');
 var path = require('path');
 
-module.exports = {
+var config = {
   context: __dirname + '/src',
   // the entry point of your library
-  entry: './chart.js',
+  entry: {
+    koto: './chart.js'
+  },
   // where 3rd-party modules can reside
   resolve: {
     modulesDirectories: ['node_modules', 'bower_components']
@@ -44,3 +46,10 @@ module.exports = {
     }]
   }
 };
+
+if (process.env.NODE_ENV === 'production') {
+  config.plugins.push(new webpack.optimize.UglifyJsPlugin());
+  config.devtool = 'source-map';
+}
+
+module.exports = config;

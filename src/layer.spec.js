@@ -285,27 +285,28 @@ export default (Layer, Chart) => {
             expect(this.spies['exit:transition'].callCount).to.equal(1);
           });
 
-          it('should invokes all event handlers in the context of the corresponding \'lifecycle selection\'', function() {
-            var entering, updating, exiting;
-            this.layer.draw([1, 2]);
-            this.layer.draw([2, 3]);
+          it('should invokes all event handlers in the context of the corresponding \'lifecycle selection\'', 
+            function() {
+              var entering, updating, exiting;
+              this.layer.draw([1, 2]);
+              this.layer.draw([2, 3]);
 
-            // Alias lifecycle selections
-            entering = this.insert.returnValues[0];
-            updating = this.dataBind.returnValues[1];
-            exiting = updating.exit.returnValues[0];
+              // Alias lifecycle selections
+              entering = this.insert.returnValues[0];
+              updating = this.dataBind.returnValues[1];
+              exiting = updating.exit.returnValues[0];
 
-            expect(this.spies.enter.calledOn(entering)).to.be.true;
-            expect(this.spies.update.calledOn(updating)).to.be.true;
-            expect(this.spies.merge.calledOn(updating)).to.be.true;
-            expect(this.spies.exit.calledOn(exiting)).to.be.true;
-            expect(this.spies['enter:transition'].calledOn(entering.transition.returnValues[0])).to.be.true;
-            expect(this.spies['update:transition'].calledOn(updating.transition.returnValues[0])).to.be.true;
-            expect(this.spies['merge:transition'].calledOn(updating.transition.returnValues[1])).to.be.true;
-            expect(this.spies['exit:transition'].calledOn(exiting.transition.returnValues[0])).to.be.true;
-          });
-
-        });
+              expect(this.spies.enter.calledOn(entering)).to.be.true;
+              expect(this.spies.update.calledOn(updating)).to.be.true;
+              expect(this.spies.merge.calledOn(updating)).to.be.true;
+              expect(this.spies.exit.calledOn(exiting)).to.be.true;
+              expect(this.spies['enter:transition'].calledOn(entering.transition.returnValues[0])).to.be.true;
+              expect(this.spies['update:transition'].calledOn(updating.transition.returnValues[0])).to.be.true;
+              expect(this.spies['merge:transition'].calledOn(updating.transition.returnValues[1])).to.be.true;
+              expect(this.spies['exit:transition'].calledOn(exiting.transition.returnValues[0])).to.be.true;
+            });
+          }
+        );
 
         describe('bound with `on`', function() {
           beforeEach(function() {
@@ -383,34 +384,36 @@ export default (Layer, Chart) => {
             expect(this.onExit2.calledBefore(this.onExit3)).to.be.true;
           });
 
-          it('should invokes all event handlers in the context of the corresponding \'lifecycle selection\'', function() {
-            var entering, updating, exiting;
-            this.layer.on('enter', this.onEnter1);
-            this.layer.on('update', this.onUpdate1);
-            this.layer.on('merge', this.onMerge1);
-            this.layer.on('exit', this.onExit1);
-            this.layer.on('enter:transition', this.onEnterTrans1);
-            this.layer.on('update:transition', this.onUpdateTrans1);
-            this.layer.on('merge:transition', this.onMergeTrans1);
-            this.layer.on('exit:transition', this.onExitTrans1);
+          it('should invokes all event handlers in the context of the corresponding \'lifecycle selection\'', 
+            function() {
+              var entering, updating, exiting;
+              this.layer.on('enter', this.onEnter1);
+              this.layer.on('update', this.onUpdate1);
+              this.layer.on('merge', this.onMerge1);
+              this.layer.on('exit', this.onExit1);
+              this.layer.on('enter:transition', this.onEnterTrans1);
+              this.layer.on('update:transition', this.onUpdateTrans1);
+              this.layer.on('merge:transition', this.onMergeTrans1);
+              this.layer.on('exit:transition', this.onExitTrans1);
 
-            this.layer.draw([1, 2]);
-            this.layer.draw([2, 3]);
+              this.layer.draw([1, 2]);
+              this.layer.draw([2, 3]);
 
-            // Alias lifecycle selections
-            entering = this.insert.returnValues[0];
-            updating = this.dataBind.returnValues[1];
-            exiting = updating.exit.returnValues[0];
+              // Alias lifecycle selections
+              entering = this.insert.returnValues[0];
+              updating = this.dataBind.returnValues[1];
+              exiting = updating.exit.returnValues[0];
 
-            expect(this.onEnter1.calledOn(entering)).to.be.true;
-            expect(this.onUpdate1.calledOn(updating)).to.be.true;
-            expect(this.onMerge1.calledOn(updating)).to.be.true;
-            expect(this.onExit1.calledOn(exiting)).to.be.true;
-            expect(this.onEnterTrans1.calledOn(entering.transition.returnValues[0])).to.be.true;
-            expect(this.onUpdateTrans1.calledOn(updating.transition.returnValues[0])).to.be.true;
-            expect(this.onMergeTrans1.calledOn(updating.transition.returnValues[1])).to.be.true;
-            expect(this.onExitTrans1.calledOn(exiting.transition.returnValues[0])).to.be.true;
-          });
+              expect(this.onEnter1.calledOn(entering)).to.be.true;
+              expect(this.onUpdate1.calledOn(updating)).to.be.true;
+              expect(this.onMerge1.calledOn(updating)).to.be.true;
+              expect(this.onExit1.calledOn(exiting)).to.be.true;
+              expect(this.onEnterTrans1.calledOn(entering.transition.returnValues[0])).to.be.true;
+              expect(this.onUpdateTrans1.calledOn(updating.transition.returnValues[0])).to.be.true;
+              expect(this.onMergeTrans1.calledOn(updating.transition.returnValues[1])).to.be.true;
+              expect(this.onExitTrans1.calledOn(exiting.transition.returnValues[0])).to.be.true;
+            }
+          );
         });
       });
     });

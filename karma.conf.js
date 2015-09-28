@@ -5,7 +5,7 @@ var path = require('path');
 var webpackConfig = require('./webpack.config');
 webpackConfig.cache = true;
 
-var entry = path.resolve(webpackConfig.context, webpackConfig.entry);
+var entry = path.resolve(webpackConfig.context, webpackConfig.entry.koto);
 var preprocessors = {};
 preprocessors[entry] = ['webpack'];
 

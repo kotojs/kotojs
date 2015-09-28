@@ -10,9 +10,4 @@ function kotoAssert(test, message) {
   throw new Error(`[koto] ${message}`);
 }
 
-if (ON_TEST) {
-  require('./assert.spec.js')(kotoAssert);
-}
-
-
 export default kotoAssert;
