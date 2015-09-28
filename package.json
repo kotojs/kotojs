@@ -16,7 +16,10 @@
     "build-standalone": "NODE_ENV=production ./node_modules/.bin/webpack",
     "build-all": "NODE_ENV=production rm -rf ./dist && npm run build-commonjs && npm run build-amd && npm run build-system && npm run build-standalone",
     "build": "rm -rf ./dist && npm run build-standalone",
-    "precommit": "npm run build && git add dist && npm test && npm run jshint"
+    "precommit": "npm run build && git add dist && npm test && npm run jshint",
+    "preversion": "npm run jshint && npm test",
+    "version": "npm run build && git add -A dist",
+    "postversion": "git push && git push --tags"
   },
   "repository": {
     "type": "git",
