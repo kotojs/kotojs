@@ -1,6 +1,6 @@
 {
   "name": "koto",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A d3 chart framework written in ES6",
   "main": "./dist/commonjs/index.js",
   "scripts": {
