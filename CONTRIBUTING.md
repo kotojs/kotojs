@@ -14,20 +14,20 @@ We'd love for you to contribute to our source code and to make our widest even b
 
 ## <a name="question"></a> Got a Question or Problem?
 
-If you have questions about how to use our widgets, please direct these to [![Join the chat at https://gitter.im/nicksrandall/kotojs](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/nicksrandall/kotojs?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge).
+If you have questions about how to use our widgets, please direct these to [![Join the chat at https://gitter.im/kotojs/kotojs](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/kotojs/kotojs?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge).
 
 ## <a name="issue"></a> Found an Issue?
 If you find a bug in the source code or a mistake in the documentation, you can help us by
-submitting an issue to the [GitHub Repository](https://github.com/nicksrandall/kotojs). Even better you can submit a Pull Request
+submitting an issue to the [GitHub Repository](https://github.com/kotojs/kotojs). Even better you can submit a Pull Request
 with a fix.
 
 **Please see the Submission Guidelines below**.
 
 ## <a name="feature"></a> Want a Feature?
-You can request a new feature by submitting an issue to our [GitHub Repository](https://github.com/nicksrandall/kotojs).  If you
+You can request a new feature by submitting an issue to our [GitHub Repository](https://github.com/kotojs/kotojs).  If you
 would like to implement a new feature then consider what kind of change it is:
 
-* **Small Changes** can be crafted and submitted to the [GitHub Repository](https://github.com/nicksrandall/kotojs) as a Pull Request.
+* **Small Changes** can be crafted and submitted to the [GitHub Repository](https://github.com/kotojs/kotojs) as a Pull Request.
 
 ## <a name="submit"></a> Submission Guidelines
 
@@ -54,7 +54,7 @@ chances of your issue being dealt with quickly:
 ### Submitting a Pull Request
 Before you submit your pull request consider the following guidelines:
 
-* Search [GitHub](https://github.com/nicksrandall/kotojs) for an open or closed Pull Request
+* Search [GitHub](https://github.com/kotojs/kotojs) for an open or closed Pull Request
   that relates to your submission. You don't want to duplicate effort.
 * Make your changes in a new git branch:
 
