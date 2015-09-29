@@ -1,4 +1,4 @@
-# koto
+# Koto
 
 A framework for creating reusable charts with [D3.js](http://d3js.org), written in ES6.
 
@@ -16,7 +16,7 @@ However, as somebody who greatly depends on the d3.chart framework, I've gotten 
 
 ```js
 // Basic Example
-koto.BarChart = class extends koto.Base {
+KotoBarChart = class extends Koto {
   constructor(selection){
     // setup chart
     var bars = this.base.append('g').classed('bars', true);
@@ -47,7 +47,7 @@ koto.BarChart = class extends koto.Base {
   }
 }
 
-var barChart = new koto.BarChart(d3.select('#vis'));
+var barChart = new KotoBarChart(d3.select('#vis'));
 barChart.draw(data);
 ```
 
@@ -64,7 +64,7 @@ In d3.chart, it is a common practice to have each configurable option (ex. Heigh
 
 ```js
 // Similar syntax to other d3 methods like `attr` and `style`
-var barChart = new koto.BarChart(d3.select('#vis'));
+var barChart = new KotoBarChart(d3.select('#vis'));
 
 barChart
   .config('height', 500)
@@ -86,7 +86,7 @@ In an effort to make components authored with this framework truely reusable, it
 
 ```js
 // Similar syntax to other d3 methods like `attr` and `style`
-var barChart = new koto.BarChart(d3.select('#vis'));
+var barChart = new KotoBarChart(d3.select('#vis'));
 
 barChart
   .accessor('name', function(d) { return d.country; })
@@ -115,7 +115,7 @@ var barChart = d3.select('#vis').chart('BarChart');
 barChart.draw(data);
 
 // KotoJS
-var barChart = new koto.BarChart(d3.select('#vis'));
+var barChart = new KotoBarChart(d3.select('#vis'));
 barChart.draw(data);
 ```
 
@@ -141,17 +141,16 @@ Browse the [Wiki](https://github.com/nicksrandall/kotojs/wiki/API-Documentation)
 ## Build Instructions
 Build requirements:
 
-- [iojs](https://iojs.org/en/index.html) OR [Node 0.10+](http://www.nodejs.org)
-- [gulp](http://gulpjs.com/)
+- [Node 0.10+](http://www.nodejs.org)
 
 
 ```js
 $ npm install
-$ gulp build
+$ npm run build
 ```
 
 ## Community
-The goal is to have a large library of pre-built widgets using this framework open sourced and available for all to use. I'm still thinking through the details but be expecting something to be released soon. If you'd like to contribute a widget (or 2 or 43), I'd welcome the support. 
+The goal is to have a large library of pre-built widgets using this framework open sourced and available for all to use. I'm still thinking through the details but be expecting something to be released soon. If you'd like to contribute a widget (or 2 or 42), I'd welcome the support. 
 
 ## Acknowledgements
 This project is **HEAVILY** inspired by the awesome work done by @jugglinmike and @iros and their charting framework called [d3.chart](https://github.com/misoproject/d3.chart).
