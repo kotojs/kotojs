@@ -2,7 +2,7 @@
   "name": "koto",
   "version": "0.0.2",
   "description": "A d3 chart framework written in ES6",
-  "main": "./dist/commonjs/index.js",
+  "main": "./dist/koto.js",
   "scripts": {
     "test-ci": "NODE_ENV=test ./node_modules/karma/bin/karma start ./karma.conf.js --single-run --browsers PhantomJS,Firefox",
     "test": "NODE_ENV=test ./node_modules/karma/bin/karma start ./karma.conf.js --single-run",

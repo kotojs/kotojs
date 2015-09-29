@@ -5,7 +5,7 @@
     "Nick Randall <nick.randall@domo.com>"
   ],
   "description": "A d3 chart framework written in ES6",
-  "main": "dist/koto.js",
+  "main": "./dist/koto.js",
   "moduleType": [
     "amd",
     "es6",
