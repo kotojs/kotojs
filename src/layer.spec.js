@@ -1,11 +1,11 @@
 export default (Layer, Chart) => {
-
+  d3.select('body').append('div').attr('id', 'mocha');
+  d3.select('body').append('div').attr('id', 'test');
+  d3.select('body').append('div').attr('id', 'test2');
   describe('d3.layer', function() {
     'use strict';
 
     before(function () {
-      d3.select('body').append('div').attr('id', 'test');
-      d3.select('body').append('div').attr('id', 'test2');
       this.Test = Chart;
       this.chart = new this.Test(d3.select('#test'));
       this.inst = this.chart.layer('layer', d3.select('#test2'), {

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Koto</title>
+  <script type="text/javascript" src="node_modules/d3/d3.js"></script>
+  <script type="text/javascript" src="/dist/koto.js"></script>
+</head>
+<body>
+  <h1>Hello, Koto!</h1>
+  <div id="test"></div>
+  <script>
+    console.log('Koto', Koto);
+    console.log('koto', new Koto(d3.select('#test')));
+  </script>
+</body>
+</html>

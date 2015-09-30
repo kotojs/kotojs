@@ -53,14 +53,14 @@ module.exports = function (config) {
     port: 9876,
     colors: true,
     autoWatch: true,
-    browsers: ['PhantomJS', 'Chrome', 'Firefox', 'Safari'],
+    browsers: ['PhantomJS', 'Chrome', 'Firefox'], // Safari has a bug
     plugins: [
       require('karma-webpack'),
       'karma-coverage',
       'karma-phantomjs-launcher',
       'karma-chrome-launcher',
       'karma-firefox-launcher',
-      'karma-safari-launcher',
+      // 'karma-safari-launcher',
       'karma-mocha',
       'karma-chai',
       'karma-sinon',

@@ -58,7 +58,8 @@ class Chart {
   /**
    * A "hook" method that you may define to modify input data before it is used
    * to draw the chart's layers and attachments. This method will be used by all
-   * sub-classes.
+   * sub-classes. You may optionally return a promise if your data transformation
+   * is asyncronous (i.e. you're using web-workers).
    *
    * Note: you will most likely never call this method directly, but rather
    * include it as part of a chart definition, and then rely on d3.chart to
@@ -242,33 +243,36 @@ class Chart {
   draw(rawData) {
     var layer, attachmentData, promises = [];
 
-    var data = this.transform(rawData);
+    return Promise.resolve(this.transform(rawData))
+      .then((data) => {
+        this.preDraw(data);
+        this.trigger('preDraw', data);
 
-    this.preDraw(data);
-    this.trigger('preDraw', data);
+        for (layer of this._layers.values()) {
+          layer.draw(data);
+          promises.push(layer.promise);
+        }
 
-    for (layer of this._layers.values()) {
-      layer.draw(data);
-      promises.push(layer.promise);
-    }
+        for (var [attachmentName, attachment] of this._attached.entries()) {
+          attachmentData = this.demux ? this.demux(attachmentName, data) : data;
+          attachment.draw(attachmentData);
+          promises.push(attachment.promise);
+        }
 
-    for (var [attachmentName, attachment] of this._attached.entries()) {
-      attachmentData = this.demux ? this.demux(attachmentName, data) : data;
-      attachment.draw(attachmentData);
-      promises.push(attachment.promise);
-    }
+        this.hasDrawn = true;
 
-    this.hasDrawn = true;
+        this.promise = Promise.all(promises);
 
-    this.promise = Promise.all(promises);
+        this.postDraw();
+        this.trigger('postDraw', data);
 
-    this.postDraw();
-    this.trigger('postDraw', data);
-
-    this.promise.then(() => {
-      this.postTransition(data);
-      this.trigger('postTransition', data);
-    });
+        this.promise.then(() => {
+          this.postTransition(data);
+          this.trigger('postTransition', data);
+        });
+        
+        return data;
+      });
   }
 
   /**
@@ -535,6 +539,7 @@ class Chart {
     }
     return chart;
   }
+
 }
 
 // run tests if on test environment

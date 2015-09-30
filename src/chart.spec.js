@@ -1,4 +1,8 @@
 export default Koto => {
+  
+  function throwError () {
+    throw new Error('');
+  }
 
   describe('koto.Base', function() {
     'use strict';
@@ -45,14 +49,17 @@ export default Koto => {
           expect(myAttachment).to.equal(this.attachmentChart);
         });
 
-        it('should connect the specified chart', function () {
+        it('should connect the specified chart', function (done) {
           var data = [13, 31];
           this.myChart.attach('myAttachment', this.attachmentChart);
-          this.myChart.draw(data);
+          this.myChart.draw(data)
+            .then(() => {
+              expect(this.attachmentChart.draw.callCount).to.equal(1);
+              expect(this.attachmentChart.draw.args[0].length).to.equal(1);
+              expect(this.attachmentChart.draw.args[0][0]).to.deep.equal(data);
+              done();
+            }, throwError);
 
-          expect(this.attachmentChart.draw.callCount).to.equal(1);
-          expect(this.attachmentChart.draw.args[0].length).to.equal(1);
-          expect(this.attachmentChart.draw.args[0][0]).to.deep.equal(data);
         });
       });
 
@@ -69,48 +76,54 @@ export default Koto => {
           this.myChart.attach('attachment2', this.attachmentChart2);
         });
 
-        it('should use provided function to demultiplex the data', function () {
+        it('should use provided function to demultiplex the data', function (done) {
           this.myChart.demux = function(attachmentName, data) {
             if (attachmentName === 'attachment1') {
               return data.series1;
             }
             return data;
           };
-          this.myChart.draw(data);
+          this.myChart.draw(data)
+            .then(() => {
+              expect(
+                this.attachmentChart.draw.args,
+                'Demuxes data passed to charts with registered function'
+              ).to.deep.equal([[[1, 2, 3]]]);
 
-          expect(
-            this.attachmentChart.draw.args,
-            'Demuxes data passed to charts with registered function'
-          ).to.deep.equal([[[1, 2, 3]]]);
+              expect(
+                this.attachmentChart2.draw.args[0][0].series1,
+                data.series1,
+                'Unmodified data passes through to attachments directly'
+              ).to.deep.equal(data.series1);
 
-          expect(
-            this.attachmentChart2.draw.args[0][0].series1,
-            data.series1,
-            'Unmodified data passes through to attachments directly'
-          ).to.deep.equal(data.series1);
+              expect(
+                this.attachmentChart2.draw.args[0][0].series2,
+                data.series1,
+                'Unmodified data passes through to attachments directly'
+              ).to.deep.equal(data.series2);
+              done();
+            }, throwError);
 
-          expect(
-            this.attachmentChart2.draw.args[0][0].series2,
-            data.series1,
-            'Unmodified data passes through to attachments directly'
-          ).to.deep.equal(data.series2);
         });
 
-        it('should not run demux if it is not defined and not throw an error', function () {
+        it('should not run demux if it is not defined and not throw an error', function (done) {
           delete this.myChart.demux;
-          this.myChart.draw(data);
+          this.myChart.draw(data)
+            .then(() => {
+              expect(
+                this.attachmentChart2.draw.args[0][0].series1,
+                data.series1,
+                'Unmodified data passes through to attachments directly'
+              ).to.deep.equal(data.series1);
 
-          expect(
-            this.attachmentChart2.draw.args[0][0].series1,
-            data.series1,
-            'Unmodified data passes through to attachments directly'
-          ).to.deep.equal(data.series1);
+              expect(
+                this.attachmentChart2.draw.args[0][0].series2,
+                data.series1,
+                'Unmodified data passes through to attachments directly'
+              ).to.deep.equal(data.series2);
+              done();
+            }, throwError);
 
-          expect(
-            this.attachmentChart2.draw.args[0][0].series2,
-            data.series1,
-            'Unmodified data passes through to attachments directly'
-          ).to.deep.equal(data.series2);
         });
       });
     });
@@ -202,58 +215,84 @@ export default Koto => {
         sinon.stub(this.attachment2, 'draw');
       });
 
-      it('should invoke the transform method once with the specified data', function () {
+      it('should invoke the transform method once with the specified data', function (done) {
         var data = [1, 2, 3];
         expect(this.transform.callCount).to.equal(0);
 
-        this.myChart.draw(data);
-
-        expect(this.transform.callCount).to.equal(1);
-        expect(this.transform.args[0][0]).to.equal(data);
+        this.myChart.draw(data)
+          .then(() => {
+            expect(this.transform.callCount).to.equal(1);
+            expect(this.transform.args[0][0]).to.equal(data);
+            done();
+          }, throwError);
       });
 
-      it('should invoke the draw method for each of its layers', function () {
+      it('should return a promise with transformed data', function (done) {
+        var data = [1, 2, 3];
+        this.myChart.draw(data)
+          .then((transformed) => {
+            expect(transformed).to.equal(this.transformedData);
+            done();
+          }, throwError);
+      });
+
+      it('should invoke the draw method for each of its layers', function (done) {
         expect(this.layer1.draw.callCount).to.equal(0);
         expect(this.layer2.draw.callCount).to.equal(0);
 
-        this.myChart.draw([]);
+        this.myChart.draw([])
+          .then(() => {
+            expect(this.layer1.draw.callCount).to.equal(1);
+            expect(this.layer2.draw.callCount).to.equal(1);
+            done();
+          }, throwError);
 
-        expect(this.layer1.draw.callCount).to.equal(1);
-        expect(this.layer2.draw.callCount).to.equal(1);
       });
 
-      it('should invoke the `draw` method of each of its layers with the transformed data', function () {
-        this.myChart.draw([]);
+      it('should invoke the `draw` method of each of its layers with the transformed data', function (done) {
+        this.myChart.draw([])
+          .then(() => {
+            expect(this.layer1.draw.args[0][0]).to.equal(this.transformedData);
+            expect(this.layer2.draw.args[0][0]).to.equal(this.transformedData);
+            done();
+          }, throwError);
 
-        expect(this.layer1.draw.args[0][0]).to.equal(this.transformedData);
-        expect(this.layer2.draw.args[0][0]).to.equal(this.transformedData);
       });
 
-      it('should invoke the `draw` method on each of its attachments', function () {
+      it('should invoke the `draw` method on each of its attachments', function (done) {
         expect(this.attachment1.draw.callCount).to.equal(0);
         expect(this.attachment2.draw.callCount).to.equal(0);
 
-        this.myChart.draw();
+        this.myChart.draw()
+          .then(() => {
+            expect(this.attachment1.draw.callCount).to.equal(1);
+            expect(this.attachment2.draw.callCount).to.equal(1);
+            done();
+          }, throwError);
 
-        expect(this.attachment1.draw.callCount).to.equal(1);
-        expect(this.attachment2.draw.callCount).to.equal(1);
       });
 
-      it('should invoke the `draw` method of each of its attachments with the transformed data', function () {
-        this.myChart.draw();
+      it('should invoke the `draw` method of each of its attachments with the transformed data', function (done) {
+        this.myChart.draw()
+          .then(() => {
+            expect(this.attachment1.draw.args[0][0]).to.equal(this.transformedData);
+            expect(this.attachment2.draw.args[0][0]).to.equal(this.transformedData);
+            done();
+          }, throwError);
 
-        expect(this.attachment1.draw.args[0][0]).to.equal(this.transformedData);
-        expect(this.attachment2.draw.args[0][0]).to.equal(this.transformedData);
       });
 
       it('should invoke the `draw` method of its layers before invoking the `draw` method of its attachments',
-        function () {
-          this.myChart.draw();
+        function (done) {
+          this.myChart.draw()
+            .then(() => {
+              expect(this.layer1.draw.calledBefore(this.attachment1.draw)).to.be.true;
+              expect(this.layer1.draw.calledBefore(this.attachment2.draw)).to.be.true;
+              expect(this.layer2.draw.calledBefore(this.attachment1.draw)).to.be.true;
+              expect(this.layer2.draw.calledBefore(this.attachment2.draw)).to.be.true;
+              done();
+            }, throwError);
 
-          expect(this.layer1.draw.calledBefore(this.attachment1.draw)).to.be.true;
-          expect(this.layer1.draw.calledBefore(this.attachment2.draw)).to.be.true;
-          expect(this.layer2.draw.calledBefore(this.attachment1.draw)).to.be.true;
-          expect(this.layer2.draw.calledBefore(this.attachment2.draw)).to.be.true;
         });
       }
     );
