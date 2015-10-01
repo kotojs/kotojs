@@ -41,7 +41,7 @@ var config = {
   module: {
     loaders: [{
       test: /\.js$/,
-      loader: 'babel?stage=0&optional=runtime',
+      loader: 'babel?stage=1&optional=runtime&loose=all',
       exclude: /(node_modules|bower_components)/
     }]
   }
