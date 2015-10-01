@@ -18,31 +18,19 @@ class Chart {
     this.base = selection; // Container for chart @type {d3.selection}.
     this.hasDrawn = false; // Has this chart been drawn at lease once?
 
-    function baseExtend(dst, maps) {
-      var setDst = function (value, key) {
-          dst.set(key, value);
-      };
-      for (var i = 0, ii = maps.length; i < ii; ++i) {
-        var map = maps[i];
-        map.forEach(setDst);
-      }
-      return dst;
-    }
-
-    this.merge = {
-      configs: function(){
-        var merged = baseExtend(this.configs, arguments);
-        return merged;
-      }.bind(this),
-      accessors: function(){
-        var merged = baseExtend(this.accessors, arguments);
-        return merged;
-      }.bind(this)
+    this.merge = {};
+    this.merge.configs = (...args) => {
+      this.configs = Object.assign({}, this.configs, ...args);
+      return this.configs;
+    };
+    this.merge.accessors = (...args) => {
+      this.accessors = Object.assign({}, this.accessors, ...args);
+      return this.accessors;
     };
 
     // exposed properties
-    this.configs = new Map();
-    this.accessors = new Map();
+    this.configs = {};
+    this.accessors = {};
     this.promise = null;
 
     // private
@@ -270,7 +258,7 @@ class Chart {
           this.postTransition(data);
           this.trigger('postTransition', data);
         });
-        
+
         return data;
       });
   }
@@ -441,8 +429,8 @@ class Chart {
     if (arguments.length === 1) {
       if (typeof nameOrObject === 'object') {
         for (key in nameOrObject) {
-          if(this.configs.has(key)) {
-            definition = this.configs.get(key);
+          if(this.configs.hasOwnProperty(key)) {
+            definition = this.configs[key];
             if (definition.hasOwnProperty('setter')) {
               definition.value = definition.setter.call(definition, nameOrObject[key]);
             } else {
@@ -451,7 +439,7 @@ class Chart {
             if (definition.hasOwnProperty('constrain')) {
               setPercentage();
             }
-            this.configs.set(key, definition);
+            this.configs[key] = definition;
           } else {
             console.warn(`config with name ${nameOrObject} is not defined.`);
           }
@@ -459,8 +447,8 @@ class Chart {
         return this;
       }
 
-      kotoAssert(this.configs.has(nameOrObject), `${nameOrObject} is not a valid option.`);
-      definition = this.configs.get(nameOrObject);
+      kotoAssert(this.configs.hasOwnProperty(nameOrObject), `${nameOrObject} is not a valid option.`);
+      definition = this.configs[nameOrObject];
       if (definition.hasOwnProperty('getter')) {
         return definition.getter.call(definition);
       }
@@ -468,8 +456,8 @@ class Chart {
     }
 
     if(arguments.length === 2) {
-      if (this.configs.has(nameOrObject)) {
-        definition = this.configs.get(nameOrObject);
+      if (this.configs.hasOwnProperty(nameOrObject)) {
+        definition = this.configs[nameOrObject];
         if (definition.hasOwnProperty('setter')) {
           definition.value = definition.setter.call(definition, value);
         } else {
@@ -478,7 +466,7 @@ class Chart {
         if (definition.hasOwnProperty('constrain')) {
           setPercentage();
         }
-        this.configs.set(nameOrObject, definition);
+        this.configs[nameOrObject] = definition;
       } else {
         console.warn(`config with name ${nameOrObject} is not defined.`);
       }
@@ -502,15 +490,15 @@ class Chart {
 
     if (arguments.length === 1) {
       if (typeof item === 'string') {
-        kotoAssert(this.accessors.has(item), `${item} is not a valid accessor.`);
-        return this.accessors.get(item);
+        kotoAssert(this.accessors.hasOwnProperty(item), `${item} is not a valid accessor.`);
+        return this.accessors[item];
       } else {
         for (key in item) {
-          this.accessors.set(key, item[key]);
+          this.accessors[key] = item[key];
         }
       }
     } else {
-      this.accessors.set(item, value);
+      this.accessors[item] = value;
     }
     return this;
   }

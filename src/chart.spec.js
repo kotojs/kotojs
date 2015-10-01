@@ -11,16 +11,15 @@ export default Koto => {
       this.Test = class extends Koto {
         constructor(selection){
           super(selection);
-          this.configs
-            .set('width', {
-              value: 500
-            })
-            .set('height', {
-              value: 500
-            })
-            .set('color', {
-              value: 'red'
-            });
+          this.configs.width = {
+            value: 500
+          };
+          this.configs.height = {
+            value: 500
+          };
+          this.configs.color = {
+            value: 'red'
+          };
 
           this.accessor('value', function (d) {
             return d.value;
@@ -502,7 +501,7 @@ export default Koto => {
 
       it('should return list of configs if passed with no args', function () {
         this.myChart.config('color', 'blue');
-        expect(this.myChart.config().size).to.equal(3);
+        expect(this.myChart.config()).to.have.all.keys('color', 'width', 'height');
       });
 
       it('should get the specified default config value', function () {
@@ -536,13 +535,12 @@ export default Koto => {
       });
 
       it('should calculate a percentage when a contriant boolean is passed in', function () {
-        this.myChart.configs
-          .set('font-size', {
-            description: 'font size for text',
-            value: 12,
-            units: 'px',
-            constrain: true
-          });
+        this.myChart.configs['font-size'] = {
+          description: 'font size for text',
+          value: 12,
+          units: 'px',
+          constrain: true
+        };
 
         this.myChart
           .config({
@@ -551,17 +549,16 @@ export default Koto => {
             'font-size': 12
           });
 
-        expect(this.myChart.configs.get('font-size')).to.have.ownProperty('percentage');
+        expect(this.myChart.configs['font-size']).to.have.ownProperty('percentage');
       });
 
       it('should calculate a percentage when a contriant string is passed in', function () {
-        this.myChart.configs
-          .set('font-size', {
-            description: 'font size for text',
-            value: 12,
-            units: 'px',
-            constrain: 'width'
-          });
+        this.myChart.configs['font-size'] = {
+          description: 'font size for text',
+          value: 12,
+          units: 'px',
+          constrain: 'width'
+        };
 
         this.myChart
           .config({
@@ -570,17 +567,16 @@ export default Koto => {
             'font-size': 12
           });
 
-        expect(this.myChart.configs.get('font-size')).to.have.ownProperty('percentage');
+        expect(this.myChart.configs['font-size']).to.have.ownProperty('percentage');
       });
 
       it('should calculate a percentage when a contriant array is passed in', function () {
-        this.myChart.configs
-          .set('font-size', {
-            description: 'font size for text',
-            value: 12,
-            units: 'px',
-            constrain: ['height', 'width']
-          });
+        this.myChart.configs['font-size'] = {
+          description: 'font size for text',
+          value: 12,
+          units: 'px',
+          constrain: ['height', 'width']
+        };
 
         this.myChart
           .config({
@@ -589,31 +585,29 @@ export default Koto => {
             'font-size': 12
           });
 
-        expect(this.myChart.configs.get('font-size')).to.have.ownProperty('percentage');
+        expect(this.myChart.configs['font-size']).to.have.ownProperty('percentage');
       });
 
       it('should calculate a percentage when a contriant is passed in via key value pair of a config', function () {
-        this.myChart.configs
-          .set('font-size', {
-            description: 'font size for text',
-            value: 12,
-            units: 'px',
-            constrain: true
-          });
+        this.myChart.configs['font-size'] = {
+          description: 'font size for text',
+          value: 12,
+          units: 'px',
+          constrain: true
+        };
 
         this.myChart
           .config('font-size', 12);
 
-        expect(this.myChart.configs.get('font-size')).to.have.ownProperty('percentage');
+        expect(this.myChart.configs['font-size']).to.have.ownProperty('percentage');
       });
 
       it('should not calculate percentage when no constraint is passed', function () {
-        this.myChart.configs
-          .set('font-size', {
-            description: 'font size for text',
-            value: 12,
-            units: 'px'
-          });
+        this.myChart.configs['font-size'] = {
+          description: 'font size for text',
+          value: 12,
+          units: 'px'
+        };
 
         this.myChart
           .config({
@@ -622,18 +616,17 @@ export default Koto => {
             'font-size': 12
           });
 
-        expect(this.myChart.configs.get('font-size')).to.not.have.ownProperty('percentage');
+        expect(this.myChart.configs['font-size']).to.not.have.ownProperty('percentage');
       });
 
       it('should call getter when a getter is specified', function () {
         this.getter = sinon.spy(function () {return this.value; });
-        this.myChart.configs
-          .set('font-size', {
-            description: 'font size for text',
-            value: 12,
-            units: 'px',
-            getter: this.getter
-          });
+        this.myChart.configs['font-size'] = {
+          description: 'font size for text',
+          value: 12,
+          units: 'px',
+          getter: this.getter
+        };
 
         this.myChart.config('font-size');
         expect(this.getter.calledOnce).to.be.true;
@@ -641,13 +634,12 @@ export default Koto => {
 
       it('should call setter when a accessing a config', function () {
         this.setter = sinon.spy(function (value) {return value; });
-        this.myChart.configs
-          .set('font-size', {
-            description: 'font size for text',
-            value: 12,
-            units: 'px',
-            setter: this.setter
-          });
+        this.myChart.configs['font-size'] = {
+          description: 'font size for text',
+          value: 12,
+          units: 'px',
+          setter: this.setter
+        };
 
         this.myChart.config('font-size', 14);
         expect(this.setter.calledOnce).to.be.true;
@@ -655,13 +647,12 @@ export default Koto => {
 
       it('should call setter when a accessing a config passes in as object', function () {
         this.setter = sinon.spy(function (value) {return value; });
-        this.myChart.configs
-          .set('font-size', {
-            description: 'font size for text',
-            value: 12,
-            units: 'px',
-            setter: this.setter
-          });
+        this.myChart.configs['font-size'] = {
+          description: 'font size for text',
+          value: 12,
+          units: 'px',
+          setter: this.setter
+        };
 
         this.myChart.config({
           'font-size': 14
@@ -691,7 +682,7 @@ export default Koto => {
 
       it('should return list of accessors if passed with no args', function () {
         this.myChart.accessor('value', function (d) { return d.value; });
-        expect(this.myChart.accessor().size).to.equal(2);
+        expect(this.myChart.accessor()).to.have.any.keys(['value']);
       });
 
       it('should get the specified default config value', function () {
@@ -746,13 +737,12 @@ export default Koto => {
       this.Chart1 = class extends Koto {
         constructor(selection){
           super(selection);
-          this.configs
-            .set('width', {
-              value: 500
-            })
-            .set('color', {
-              value: 'red'
-            });
+          this.configs.width = {
+            value: 500
+          };
+          this.configs.color = {
+            value: 'red'
+          };
 
           this.accessor('value', func1);
           this.accessor('item', func2);
@@ -771,13 +761,12 @@ export default Koto => {
       this.Chart2 = class extends Koto {
         constructor(selection){
           super(selection);
-          this.configs
-            .set('height', {
-              value: 500
-            })
-            .set('fill', {
-              value: 'red'
-            });
+          this.configs.height = {
+            value: 500
+          };
+          this.configs.fill = {
+            value: 'red'
+          };
 
           this.accessor('name', func3);
           this.accessor('category', func4);
