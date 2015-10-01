@@ -214,7 +214,7 @@ class Layer {
       // Some lifecycle selections modify shared state, so they must be
       // deferred until just prior to handler invocation.
       if (typeof method === 'function') {
-        selection = method.call(selection);
+        selection = method.call(selection, selection);
       }
 
       if (selection.empty()) {
@@ -235,7 +235,8 @@ class Layer {
           // Attach a reference to the parent chart so the selection"s
           // `chart` method will function correctly.
           selection._chart = handlers[idx].chart || this._base._chart;
-          selection.call(handlers[idx].callback);
+          // selection.call(handlers[idx].callback);
+          handlers[idx].callback.call(selection, selection);
         }
       }
 
@@ -245,7 +246,8 @@ class Layer {
         selection = selection.transition();
         for (tlen = handlers.length, tidx = 0; tidx < tlen; ++tidx) {
           selection._chart = handlers[tidx].chart || this._base._chart;
-          selection.call(handlers[tidx].callback);
+          // selection.call(handlers[tidx].callback);
+          handlers[tidx].callback.call(selection, selection);
           promises.push(new Promise(promiseCallback));
         }
       }
