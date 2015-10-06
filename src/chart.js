@@ -245,7 +245,7 @@ class Chart {
 
         for (var [attachmentName, attachment] of this._attached.entries()) {
           attachmentData = this.demux ? this.demux(attachmentName, data) : data;
-          attachment.draw(attachmentData);
+          attachment.theme(this._theme).draw(attachmentData);
           promises.push(attachment.promise);
         }
 
