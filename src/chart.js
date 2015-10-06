@@ -1,4 +1,5 @@
 import d3 from 'd3';
+import Theme from 'koto-theme';
 import kotoAssert from './assert.js';
 import Layer from './layer.js';
 
@@ -34,6 +35,7 @@ class Chart {
     this.promise = null;
 
     // private
+    this._theme = new Theme();
     this._layers = new Map();
     this._attached = new Map();
     this._events = new Map();
@@ -500,6 +502,14 @@ class Chart {
     } else {
       this.accessors[item] = value;
     }
+    return this;
+  }
+
+  theme (theme) {
+    if (arguments.length === 0) {
+      return this._theme;
+    }
+    this._theme = theme;
     return this;
   }
 

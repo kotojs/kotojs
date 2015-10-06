@@ -27,7 +27,13 @@ var config = {
     // but which can be loaded externally, e.g. from CDN
     // or included separately with a <script> tag
 
-    'd3': 'd3'
+    'd3': 'd3',
+    'koto-theme': {
+      root: 'Theme',
+      commonjs: 'koto-theme',
+      commonjs2: 'koto-theme',
+      amd: 'koto-theme'
+    }
   },
 
   plugins: [
