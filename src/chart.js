@@ -1,11 +1,10 @@
 import d3 from 'd3';
-import Theme from 'koto-theme';
 import kotoAssert from './assert.js';
 import Layer from './layer.js';
 
 // d3 is required
 kotoAssert(d3, 'd3 js is required.');
-
+require('babel-polyfill');
 /**
  * Create a koto chart
  *
@@ -35,7 +34,6 @@ class Chart {
     this.promise = null;
 
     // private
-    this._theme = new Theme();
     this._layers = new Map();
     this._attached = new Map();
     this._events = new Map();
@@ -245,7 +243,7 @@ class Chart {
 
         for (var [attachmentName, attachment] of this._attached.entries()) {
           attachmentData = this.demux ? this.demux(attachmentName, data) : data;
-          attachment.theme(this._theme).draw(attachmentData);
+          attachment.draw(attachmentData);
           promises.push(attachment.promise);
         }
 
@@ -502,14 +500,6 @@ class Chart {
     } else {
       this.accessors[item] = value;
     }
-    return this;
-  }
-
-  theme (theme) {
-    if (arguments.length === 0) {
-      return this._theme;
-    }
-    this._theme = theme;
     return this;
   }
 
