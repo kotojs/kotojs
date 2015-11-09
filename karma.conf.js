@@ -22,7 +22,7 @@ module.exports = function (config) {
     frameworks: ['mocha', 'chai', 'sinon', 'sinon-chai'],
     files: [
       'node_modules/polyfill-function-prototype-bind/bind.js',
-      'node_modules/koto-theme/dist/theme.js',
+      // 'node_modules/koto-theme/dist/theme.js',
       'node_modules/d3/d3.js',
       entry
     ],

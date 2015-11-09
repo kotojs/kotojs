@@ -28,12 +28,13 @@ var config = {
     // or included separately with a <script> tag
 
     'd3': 'd3',
-    'koto-theme': {
-      root: 'Theme',
-      commonjs: 'koto-theme',
-      commonjs2: 'koto-theme',
-      amd: 'koto-theme'
-    }
+    'babel-polyfill': 'babel-polyfill'
+    // 'koto-theme': {
+    //   root: 'Theme',
+    //   commonjs: 'koto-theme',
+    //   commonjs2: 'koto-theme',
+    //   amd: 'koto-theme'
+    // }
   },
 
   plugins: [

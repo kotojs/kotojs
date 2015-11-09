@@ -1,10 +1,10 @@
+import 'babel-polyfill';
 import d3 from 'd3';
 import kotoAssert from './assert.js';
 import Layer from './layer.js';
 
 // d3 is required
 kotoAssert(d3, 'd3 js is required.');
-require('babel-polyfill');
 /**
  * Create a koto chart
  *
