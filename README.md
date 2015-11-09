@@ -4,7 +4,7 @@ A framework for creating reusable charts with [D3.js](http://d3js.org), written 
 
 [![Travis build status](http://img.shields.io/travis/kotojs/kotojs.svg?style=flat)](https://travis-ci.org/kotojs/kotojs)
 [![Code Climate](https://codeclimate.com/github/kotojs/kotojs/badges/gpa.svg)](https://codeclimate.com/github/kotojs/kotojs)
-[![Test Coverage](https://codeclimate.com/github/kotojs/kotojs/badges/coverage.svg)](https://codeclimate.com/github/kotojs/kotojs)
+[![Coverage Status](https://coveralls.io/repos/kotojs/kotojs/badge.svg?branch=master&service=github)](https://coveralls.io/github/kotojs/kotojs?branch=master)
 [![Dependency Status](https://david-dm.org/kotojs/kotojs.svg)](https://david-dm.org/kotojs/kotojs)
 [![devDependency Status](https://david-dm.org/kotojs/kotojs/dev-status.svg)](https://david-dm.org/kotojs/kotojs#info=devDependencies)
 [![Join the chat at https://gitter.im/kotojs/kotojs](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/kotojs/kotojs?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
