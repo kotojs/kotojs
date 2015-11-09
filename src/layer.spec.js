@@ -1,4 +1,4 @@
-export default (Layer, Chart) => {
+module.exports = (Layer, Chart) => {
   d3.select('body').append('div').attr('id', 'mocha');
   d3.select('body').append('div').attr('id', 'test');
   d3.select('body').append('div').attr('id', 'test2');

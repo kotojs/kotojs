@@ -1,4 +1,4 @@
-export default Koto => {
+module.exports = Koto => {
   
   function throwError () {
     throw new Error('');

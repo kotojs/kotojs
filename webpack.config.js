@@ -14,7 +14,8 @@ var config = {
 
   output: {
     // where to put standalone build file
-    path: path.join(__dirname, 'dist'),
+    path: path.join(__dirname, '/dist'),
+    publicPath: '/dist',
     // the name of the standalone build file
     filename: '[name].js',
     // the standalone build should be wrapped in UMD for interop
@@ -48,7 +49,7 @@ var config = {
   module: {
     loaders: [{
       test: /\.js$/,
-      loader: 'babel?stage=1&optional=runtime&loose=all',
+      loader: 'babel?presets[]=es2015',
       exclude: /(node_modules|bower_components)/
     }]
   }

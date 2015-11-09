@@ -1,4 +1,4 @@
-export default kotoAssert => {
+module.exports = kotoAssert => {
 
   describe('kotoAssert', () => {
     it('should do nothing when test is truthy', () => {

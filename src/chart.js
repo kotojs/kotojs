@@ -537,4 +537,4 @@ if (ON_TEST) {
   require('./chart.spec.js')(Chart);
 }
 
-export default Chart;
+module.exports = Chart;
