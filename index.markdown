@@ -153,5 +153,9 @@ $ gulp build
 ## Community
 The goal is to have a large library of pre-built widgets using this framework open sourced and available for all to use. I'm still thinking through the details but be expecting something to be released soon. If you'd like to contribute a widget (or 2 or 43), I'd welcome the support. 
 
+## Examples
+- Basic Bar Chart (ES2015): [http://bl.ocks.org/nicksrandall/53c6d59ea70afaf19cf1](http://bl.ocks.org/nicksrandall/53c6d59ea70afaf19cf1)
+- Basic Bar Chart (ES5): [http://bl.ocks.org/nicksrandall/58457ea613b84f7544b1](http://bl.ocks.org/nicksrandall/58457ea613b84f7544b1)
+
 ## Acknowledgements
 This project is **HEAVILY** inspired by the awesome work done by @jugglinmike and @iros and their charting framework called [d3.chart](https://github.com/misoproject/d3.chart).
