@@ -6,6 +6,13 @@ description: "A d3 framework for reusable charts"
 #Koto
 **koto.js** is a [d3.js](http://www.d3js.org) charting framework written in ES6, the latest iteration of javascript.
 
+[![Travis build status](http://img.shields.io/travis/kotojs/kotojs.svg?style=flat)](https://travis-ci.org/kotojs/kotojs)
+[![Code Climate](https://codeclimate.com/github/kotojs/kotojs/badges/gpa.svg)](https://codeclimate.com/github/kotojs/kotojs)
+[![Coverage Status](https://coveralls.io/repos/kotojs/kotojs/badge.svg?branch=master&service=github)](https://coveralls.io/github/kotojs/kotojs?branch=master)
+[![Dependency Status](https://david-dm.org/kotojs/kotojs.svg)](https://david-dm.org/kotojs/kotojs)
+[![devDependency Status](https://david-dm.org/kotojs/kotojs/dev-status.svg)](https://david-dm.org/kotojs/kotojs#info=devDependencies)
+[![Join the chat at https://gitter.im/kotojs/kotojs](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/kotojs/kotojs?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 ## Introduction
 KotoJS is **HEAVILY** inspired by another reusable charting framework maintained by the Miso Project called d3.chart. I think that project is well designed and well documented.  For those who are not familiar with d3.chart, the framework provides a logical way to ensure that all data-visualization components that are authored using the framework are done in a way that facilitates re-usablily. 
 
