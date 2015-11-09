@@ -5,7 +5,7 @@ description: "A d3 chart framework for reusable charts"
 baseurl: ""
 url: "http://kotojs.org"
 twitter_username: kotojs
-github_username:  "nicksrandall/kotojs"
+github_username:  "kotojs/kotojs"
 facebook_username:  kotojs
 
 # Build settings
