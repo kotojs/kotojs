@@ -271,7 +271,7 @@ class Chart {
    * @param {...*} arguments Invoked with the arguments passed to {@link
    *         Chart#trigger}
    */
-
+   
   /**
    * Subscribe a callback function to an event triggered on the chart. See {@link
    * Chart#once} to subscribe a callback function to an event for one occurence.

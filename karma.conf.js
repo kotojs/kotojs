@@ -19,10 +19,9 @@ webpackConfig.module.postLoaders = [{
 module.exports = function (config) {
   config.set({
     basePath: './',
-    frameworks: ['mocha', 'chai', 'sinon', 'sinon-chai'],
+    frameworks: ['mocha', 'chai', 'sinon'],
     files: [
-      'node_modules/polyfill-function-prototype-bind/bind.js',
-      'node_modules/babel-polyfill/browser.js',
+      'node_modules/babel-polyfill/dist/polyfill.js',
       // 'node_modules/koto-theme/dist/theme.js',
       'node_modules/d3/d3.js',
       entry
