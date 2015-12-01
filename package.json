@@ -10,7 +10,7 @@
     "tdd": "NODE_ENV=test ./node_modules/karma/bin/karma start ./karma.conf.js",
     "js-files": "find . -name '*.js' ! -path './node_modules/*' ! -path './bower_components/*' ! -path './coverage/*' ! -path './dist/*' ! -path './jspm_packages'",
     "jshint": "node_modules/.bin/jshint `npm run -s js-files`",
-    "coveralls": "npm run test-ci && node node_modules/lcov-filter/index.js ./coverage/phantomjs/lcov.info spec | ./node_modules/.bin/codecov && rm -rf ./coverage",
+    "coveralls": "npm run test-ci && cat ./coverage/phantomjs/lcov.info | ./node_modules/.bin/codecov && rm -rf ./coverage",
     "build": "rm -rf ./dist && NODE_ENV=production ./node_modules/.bin/webpack",
     "precommit": "npm run build && git add dist && npm run jshint && npm test",
     "preversion": "npm run jshint && npm test",
