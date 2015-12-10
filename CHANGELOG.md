@@ -1,5 +1,11 @@
-<a name="0.1.7"></a>
-## [0.1.7](https://github.com/kotojs/kotojs/compare/v0.1.7...v0.1.7) (2015-11-09)
+<a name="0.1.9"></a>
+## [0.1.9](https://github.com/kotojs/kotojs/compare/v0.1.8...v0.1.9) (2015-12-10)
+
+
+
+
+<a name="0.1.8"></a>
+## [0.1.8](https://github.com/kotojs/kotojs/compare/v0.1.7...v0.1.8) (2015-11-09)
 
 
 
