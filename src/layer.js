@@ -1,4 +1,5 @@
 import kotoAssert from './assert.js';
+import d3 from 'd3';
 
 /**
  * Create a layer using the provided `base`. The layer instance is *not*
