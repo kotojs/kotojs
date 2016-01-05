@@ -3,7 +3,7 @@ import d3 from 'd3';
 
 /**
  * Create a layer using the provided `base`. The layer instance is *not*
- * exposed to d3.chart users. Instead, its instance methods are mixed in to the
+ * exposed to koto users. Instead, the instance methods are mixed in to the
  * `base` selection it describes; users interact with the instance via these
  * bound methods.
  *
@@ -52,7 +52,7 @@ class Layer {
   }
 
   /**
-   * Subscribe a handler to a "lifecycle event". These events (and only these
+   * Subscribe a handler to a lifecycle event. These events (and only these
    * events) are triggered when {@link Layer#draw} is invoked--see that method
    * for more details on lifecycle events.
    *
@@ -60,7 +60,7 @@ class Layer {
    *        subscribe.
    * @param {Function} handler Callback function
    *
-   * @returns {Chart} Reference to the layer instance (chaining).
+   * @returns {Chart} Reference to the layer instance (for chaining).
    */
   on(eventName, handler, options) {
     options = options || {};
@@ -87,7 +87,7 @@ class Layer {
    *        unsubscribe
    * @param {Function} handler Callback to remove from the specified event
    *
-   * @returns {Chart} Reference to the layer instance (chaining).
+   * @returns {Chart} Reference to the layer instance (for chaining).
    */
   off(eventName, handler) {
     var handlers = this._handlers[eventName];
@@ -115,7 +115,7 @@ class Layer {
   }
 
   /**
-   * Render the layer according to the input data: Bind the data to the layer
+   * Render the layer according to the input data. Bind the data to the layer
    * (according to {@link Layer#dataBind}, insert new elements (according to
    * {@link Layer#insert}, make lifecycle selections, and invoke all relevant
    * handlers (as attached via {@link Layer#on}) with the lifecycle selections.
@@ -192,7 +192,7 @@ class Layer {
         name: 'merge',
         // Although the `merge` lifecycle event shares its selection object
         // with the `update` lifecycle event, the object's contents will be
-        // modified when d3.chart invokes the user-supplied `insert` method
+        // modified when koto invokes the user-supplied `insert` method
         // when triggering the `enter` event.
         selection: bound
       },
@@ -200,7 +200,7 @@ class Layer {
         name: 'exit',
         // Although the `exit` lifecycle event shares its selection object
         // with the `update` and `merge` lifecycle events, the object's
-        // contents will be modified when d3.chart invokes
+        // contents will be modified when koto invokes
         // `d3.selection.exit`.
         selection: bound,
         method: bound.exit
@@ -222,10 +222,6 @@ class Layer {
         continue;
       }
 
-      // Although `selection instanceof d3.selection` is more explicit,
-      // it fails in IE8, so we use duck typing to maintain
-      // compatability.
-
       kotoAssert(selection && selection instanceof d3.selection,
         `Invalid selection defined for ${eventName} lifecycle event.`);
 
@@ -233,7 +229,7 @@ class Layer {
 
       if (handlers) {
         for (idx = 0, len = handlers.length; idx < len; ++idx) {
-          // Attach a reference to the parent chart so the selection"s
+          // Attach a reference to the parent chart so the selection's
           // `chart` method will function correctly.
           selection._chart = handlers[idx].chart || this._base._chart;
           // selection.call(handlers[idx].callback);

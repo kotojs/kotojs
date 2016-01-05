@@ -16,7 +16,7 @@ kotoAssert(d3, 'd3 js is required.');
 class Chart {
   constructor(selection) {
     this.base = selection; // Container for chart @type {d3.selection}.
-    this.hasDrawn = false; // Has this chart been drawn at lease once?
+    this.hasDrawn = false; // Has this chart been drawn at least once?
 
     this.merge = {};
     this.merge.configs = (...args) => {
@@ -47,10 +47,10 @@ class Chart {
    * A "hook" method that you may define to modify input data before it is used
    * to draw the chart's layers and attachments. This method will be used by all
    * sub-classes. You may optionally return a promise if your data transformation
-   * is asyncronous (i.e. you're using web-workers).
+   * is asynchronous (i.e. you're using web workers).
    *
    * Note: you will most likely never call this method directly, but rather
-   * include it as part of a chart definition, and then rely on d3.chart to
+   * include it as part of a chart definition, and then rely on koto to
    * invoke it when you draw the chart with {@link Chart#draw}.
    *
    * @param {Array} data Input data provided to @link Chart#draw}.
@@ -66,7 +66,7 @@ class Chart {
    * {@link Chart#attach} method.
    *
    * Note: you will most likely never call this method directly, but rather
-   * include it as part of a chart definition, and then rely on d3.chart to
+   * include it as part of a chart definition, and then rely on koto to
    * invoke it when you draw the chart with {@link Chart#draw}.
    *
    * @param {String} data Name of attached chart defined in {@link Chart#attach}.
@@ -78,10 +78,10 @@ class Chart {
 
   /**
    * A "hook" method that will allow you to run some arbitrary code before
-   * {@link Chart#draw}. This will run everytime {@link Chart#draw} is called.
+   * {@link Chart#draw}. This will run every time {@link Chart#draw} is called.
    *
    * Note: you will most likely never call this method directly, but rather
-   * include it as part of a chart definition, and then rely on d3.chart to
+   * include it as part of a chart definition, and then rely on koto to
    * invoke it when you draw the chart with {@link Chart#draw}.
    *
    * Note 2: a `postDraw` event is also fired when appropriate;
@@ -93,10 +93,10 @@ class Chart {
 
   /**
    * A "hook" method that will allow you to run some arbitrary code after
-   * {@link Chart#draw}. This will run everytime {@link Chart#draw} is called.
+   * {@link Chart#draw}. This will run every time {@link Chart#draw} is called.
    *
    * Note: you will most likely never call this method directly, but rather
-   * include it as part of a chart definition, and then rely on d3.chart to
+   * include it as part of a chart definition, and then rely on koto to
    * invoke it when you draw the chart with {@link Chart#draw}.
    *
    * @param  {[type]} data [description]
@@ -106,11 +106,11 @@ class Chart {
   /**
    * A "hook" method that will allow you to run some arbitrary code after
    * {@link Chart#draw} is called AND after all transitions for all layers
-   * and attached charts have been completed. This will run everytime
+   * and attached charts have been completed. This will run every time
    * {@link Chart#draw} is called.
    *
    * Note: you will most likely never call this method directly, but rather
-   * include it as part of a chart definition, and then rely on d3.chart to
+   * include it as part of a chart definition, and then rely on koto to
    * invoke it when you draw the chart with {@link Chart#draw}.
    *
    * Note 2: a `postTransition` event is also fired when appropriate;
@@ -264,17 +264,8 @@ class Chart {
   }
 
   /**
-   * Function invoked with the context specified when the handler was bound (via
-   * {@link Chart#on} {@link Chart#once}).
-   *
-   * @callback ChartEventHandler
-   * @param {...*} arguments Invoked with the arguments passed to {@link
-   *         Chart#trigger}
-   */
-   
-  /**
    * Subscribe a callback function to an event triggered on the chart. See {@link
-   * Chart#once} to subscribe a callback function to an event for one occurence.
+   * Chart#once} to subscribe a callback function to an event for one occurrence.
    *
    * @externalExample {runnable} chart-on
    *
@@ -306,7 +297,7 @@ class Chart {
 
   /**
    * Subscribe a callback function to an event triggered on the chart. This
-   * function will be invoked at the next occurance of the event and immediately
+   * function will be invoked at the next occurrence of the event and immediately
    * unsubscribed. See {@link Chart#on} to subscribe a callback function to an
    * event indefinitely.
    *
@@ -342,7 +333,7 @@ class Chart {
    *
    * @param {String} [name] Name of the event to be unsubscribed
    * @param {ChartEventHandler} [callback] Function to be unsubscribed
-   * @param {Object} [context] Contexts to be unsubscribe
+   * @param {Object} [context] Contexts to be unsubscribed
    *
    * @returns {Chart} A reference to this chart (chainable).
    */
@@ -394,13 +385,14 @@ class Chart {
     }
     return this;
   }
+
   /**
    * Get and set chart options (or configs)
    *
-   * @param  {mixed} nameOrObject name of item getting or setting
-   *                              or its an object with key value pairs.
-   * @param  {mixed} value the value for config item witha that name.
-   * @return {mixed} if getting, its the value. if setting it is the chart instance.
+   * @param  {mixed} nameOrObject Name of item getting or setting
+   *                              or an object with key-value pairs.
+   * @param  {mixed} value The value for config item with that name.
+   * @return {mixed} if getting: the value. if setting: the chart instance.
    */
   config(nameOrObject, value) {
     var key;
@@ -408,17 +400,17 @@ class Chart {
     var _Chart = this;
 
     function setPercentage () {
-      function calcultePerecentage (arr, initialValue) {
+      function calculatePercentage (arr, initialValue) {
         var min = Math.min.call(null, arr.map(function (name) { return _Chart.config(name); }));
         return initialValue / min;
       }
 
       if (definition.constrain === true) {
-        definition.percentage = calcultePerecentage(['width', 'height'], definition.value);
+        definition.percentage = calculatePercentage(['width', 'height'], definition.value);
       } else if (Array.isArray(definition.constrain)) {
-        definition.percentage = calcultePerecentage(definition.constrain, definition.value);
+        definition.percentage = calculatePercentage(definition.constrain, definition.value);
       } else {
-        definition.percentage = calcultePerecentage([definition.constrain], definition.value);
+        definition.percentage = calculatePercentage([definition.constrain], definition.value);
       }
     }
 

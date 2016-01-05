@@ -15,7 +15,8 @@
     "preversion": "npm run jshint && npm test",
     "version": "npm run build && npm run changelog && git add -A dist",
     "postversion": "git push && git push --tags",
-    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -w -r 0"
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -w -r 0",
+    "watch": "rm -rf ./dist && NODE_ENV=production ./node_modules/.bin/webpack --progress --colors --watch"
   },
   "repository": {
     "type": "git",
