@@ -90,10 +90,16 @@ module.exports = (Layer, Chart) => {
         }).to.throw(Error);
       });
 
-      it('should invokes the provided `dataBind` method in the context of the layer\'s selection', function() {
+      it('should invoke the provided `dataBind` method in the context of the layer\'s selection', function() {
         expect(this.dataBind.callCount).to.equal(0);
         this.layer.draw([]);
         expect(this.dataBind.calledOn(this.base)).to.be.true;
+      });
+
+      it('should invoke the provided `dataBind` method with the layers context', function() {
+        var data = [];
+        this.layer.draw(data);
+        expect(this.dataBind.args[0][1]).to.equal(this.layer);
       });
 
       it('should invokes the provided `dataBind` method with the specified data', function() {
@@ -127,7 +133,7 @@ module.exports = (Layer, Chart) => {
           });
       });
 
-      it('should invokes the provided `insert` method in the context of the layer\'s bound `enter` selection', 
+      it('should invokes the provided `insert` method in the context of the layer\'s bound `enter` selection',
         function() {
           this.layer.draw([]);
           expect(this.insert.calledOn(this.dataBind.returnValues[0].enter.returnValues[0])).to.be.true;
@@ -285,7 +291,7 @@ module.exports = (Layer, Chart) => {
             expect(this.spies['exit:transition'].callCount).to.equal(1);
           });
 
-          it('should invokes all event handlers in the context of the corresponding \'lifecycle selection\'', 
+          it('should invokes all event handlers in the context of the corresponding \'lifecycle selection\'',
             function() {
               var entering, updating, exiting;
               this.layer.draw([1, 2]);
@@ -384,7 +390,7 @@ module.exports = (Layer, Chart) => {
             expect(this.onExit2.calledBefore(this.onExit3)).to.be.true;
           });
 
-          it('should invokes all event handlers in the context of the corresponding \'lifecycle selection\'', 
+          it('should invokes all event handlers in the context of the corresponding \'lifecycle selection\'',
             function() {
               var entering, updating, exiting;
               this.layer.on('enter', this.onEnter1);

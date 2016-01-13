@@ -37,6 +37,7 @@ class Layer {
    * implementation is "virtual"--it *must* be overridden by Layer instances.
    *
    * @param {Array} data Value passed to {@link Layer#draw}
+   * @param {Object} [context] the instance of this layers
    */
   dataBind() {
     kotoAssert(false, 'Layers must specify a dataBind method.');
@@ -169,7 +170,7 @@ class Layer {
       });
     }
 
-    bound = this.dataBind.call(this._base, data);
+    bound = this.dataBind.call(this._base, data, this);
 
     kotoAssert(bound instanceof d3.selection,
       'Invalid selection defined by `Layer#dataBind` method.');
