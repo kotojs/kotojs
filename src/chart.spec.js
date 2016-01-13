@@ -1,5 +1,5 @@
 module.exports = Koto => {
-  
+
   function throwError () {
     throw new Error('');
   }
@@ -817,6 +817,35 @@ module.exports = Koto => {
 
         var chart = new ExtendedChart(d3.select('#test'));
         expect(chart._layers.size).to.equal(2);
+      });
+    });
+
+    describe('Koto.Layer', function () {
+
+      it('should be exposed on Koto namespace', function () {
+        expect(Koto.Layer).to.exist;
+      });
+
+      it('should be subclassable', function () {
+        class OtherLayer extends Koto.Layer {
+          extraMethod(){
+            return true;
+          }
+        }
+        var _layer = new OtherLayer(d3.select('#test2'), {
+          dataBind(data) {
+            return this.data(data);
+          },
+          insert() {
+            this.append('span');
+          }
+        });
+
+        var chart = new Koto(d3.select('#test'));
+
+        expect(function () {
+          chart.layer('test other layer', _layer);
+        }).to.not.throw(Error);
       });
     });
 

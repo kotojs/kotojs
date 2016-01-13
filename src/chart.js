@@ -522,6 +522,11 @@ class Chart {
 
 }
 
+/**
+* Expose the Layer class so that it can be subclassed.
+*/
+Chart.Layer = Layer;
+
 // run tests if on test environment
 if (ON_TEST) {
   require('./assert.spec.js')(kotoAssert);
