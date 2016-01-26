@@ -8,6 +8,7 @@ A framework for creating reusable charts with [D3.js](http://d3js.org), written 
 [![Dependency Status](https://david-dm.org/kotojs/kotojs.svg)](https://david-dm.org/kotojs/kotojs)
 [![devDependency Status](https://david-dm.org/kotojs/kotojs/dev-status.svg)](https://david-dm.org/kotojs/kotojs#info=devDependencies)
 [![Join the chat at https://gitter.im/kotojs/kotojs](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/kotojs/kotojs?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 
 ## Introduction
 KotoJS is **HEAVILY** inspired by another reusable charting framework maintained by the Miso Project called d3.chart. I think that project is well designed and well documented.  For those who are not familiar with d3.chart, the framework provides a logical way to ensure that all data-visualization components that are authored using the framework are done in a way that facilitates re-usablily. 
@@ -136,7 +137,9 @@ $ npm install koto --save
 ```
 
 ## Documentation
-Browse the [Wiki](https://github.com/nicksrandall/kotojs/wiki/API-Documentation).
+- Browse the [generated docs](https://github.com/kotojs/kotojs/docs/docs.md).
+- Browse the [website](http://kotojs.org/docs/).
+
 
 ## Build Instructions
 Build requirements:
