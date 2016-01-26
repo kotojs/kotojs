@@ -1,0 +1,398 @@
+# Chart
+
+[src/chart.js:16-523](https://github.com/kotojs/kotojs/blob/4ea96b078e26f22d6c35908fd62c6bde3b764e7d/src/chart.js#L16-L523 "Source code on GitHub")
+
+Create a koto chart
+
+**Parameters**
+
+-   `selection` **d3.selection** The chart's "base" DOM node. This should
+           contain any nodes that the chart generates.
+
+## accessor
+
+[src/chart.js:477-496](https://github.com/kotojs/kotojs/blob/4ea96b078e26f22d6c35908fd62c6bde3b764e7d/src/chart.js#L477-L496 "Source code on GitHub")
+
+This will get or set any of the chart's accessors.
+
+**Parameters**
+
+-   `item`  
+-   `value` **[function]** The function to update accessor item with.
+
+Returns **object** The chart to preserve chainability.
+
+## attach
+
+[src/chart.js:210-217](https://github.com/kotojs/kotojs/blob/4ea96b078e26f22d6c35908fd62c6bde3b764e7d/src/chart.js#L210-L217 "Source code on GitHub")
+
+Register or retrieve an "attachment" Chart. The "attachment" chart's `draw`
+method will be invoked whenever the containing chart's `draw` method is
+invoked.
+
+**Parameters**
+
+-   `attachmentName` **String** Name of the attachment
+-   `chart` **[Chart]** koto to register as a mix in of this chart. When
+           unspecified, this method will return the attachment previously
+           registered with the specified `attachmentName` (if any).
+
+Returns **Chart** Reference to this chart (chainable).
+
+## config
+
+[src/chart.js:397-467](https://github.com/kotojs/kotojs/blob/4ea96b078e26f22d6c35908fd62c6bde3b764e7d/src/chart.js#L397-L467 "Source code on GitHub")
+
+Get and set chart options (or configs)
+
+**Parameters**
+
+-   `nameOrObject` **mixed** Name of item getting or setting
+                                 or an object with key-value pairs.
+-   `value` **mixed** The value for config item with that name.
+
+Returns **mixed** if getting: the value. if setting: the chart instance.
+
+## demux
+
+[src/chart.js:77-77](https://github.com/kotojs/kotojs/blob/4ea96b078e26f22d6c35908fd62c6bde3b764e7d/src/chart.js#L77-L77 "Source code on GitHub")
+
+A "hook" method that you may define to choose which mutation of the input
+data is sent to which of the attached charts (by name). This method will
+be used by all sub-classes. This only applies to charts that use the
+`Chart#attach` method.
+
+Note: you will most likely never call this method directly, but rather
+include it as part of a chart definition, and then rely on koto to
+invoke it when you draw the chart with `Chart#draw`.
+
+**Parameters**
+
+-   `name`  
+-   `data` **String** Name of attached chart defined in `Chart#attach`.
+-   `data` **Array** Input data provided to `Chart#draw`.
+
+Returns **mixed** Data to be used in drawing the chart's layers and
+                 attachments.
+
+## draw
+
+[src/chart.js:231-264](https://github.com/kotojs/kotojs/blob/4ea96b078e26f22d6c35908fd62c6bde3b764e7d/src/chart.js#L231-L264 "Source code on GitHub")
+
+Update the chart's representation in the DOM, drawing all of its layers and
+any "attachment" charts (as attached via `Chart#attach`).
+
+Note: The first time you call this method, the property `hasDrawn` will be
+set to true. This is helpful if you want to only run some code on the first
+time the chart is drawn.
+
+**Parameters**
+
+-   `data` **Object** Data to pass to the `Layer#draw|draw method` of
+           this cart's `Layer|layers` (if any) and the `Chart#draw|draw method` of this chart's attachments (if any).
+-   `rawData`  
+
+## layer
+
+[src/chart.js:162-196](https://github.com/kotojs/kotojs/blob/4ea96b078e26f22d6c35908fd62c6bde3b764e7d/src/chart.js#L162-L196 "Source code on GitHub")
+
+Interact with the chart's `Layer|layers`.
+
+If only a `name` is provided, simply return the layer registered to that
+name (if any).
+
+If a `name` and `selection` are provided, treat the `selection` as a
+previously-created layer and attach it to the chart with the specified
+`name`.
+
+If all three arguments are specified, initialize a new `Layer` using
+the specified `selection` as a base passing along the specified `options`.
+
+The `Layer.draw` method of attached layers will be invoked
+whenever this chart's `Chart#draw` is invoked and will receive the
+data (optionally modified by the chart's `Chart#transform` method.
+
+**Parameters**
+
+-   `name` **String** Name of the layer to attach or retrieve.
+-   `selection` **[d3.selection or Layer]** The layer's base or a
+           previously-created `Layer`.
+-   `options` **[Object]** Options to be forwarded to `Layer|the Layer
+           constructor`
+
+Returns **Layer** 
+
+## off
+
+[src/chart.js:340-367](https://github.com/kotojs/kotojs/blob/4ea96b078e26f22d6c35908fd62c6bde3b764e7d/src/chart.js#L340-L367 "Source code on GitHub")
+
+Unsubscribe one or more callback functions from an event triggered on the
+chart. When no arguments are specified, _all_ handlers will be unsubscribed.
+When only a `name` is specified, all handlers subscribed to that event will
+be unsubscribed. When a `name` and `callback` are specified, only that
+function will be unsubscribed from that event. When a `name` and `context`
+are specified (but `callback` is omitted), all events bound to the given
+event with the given context will be unsubscribed.
+
+**Parameters**
+
+-   `name` **[String]** Name of the event to be unsubscribed
+-   `callback` **[ChartEventHandler]** Function to be unsubscribed
+-   `context` **[Object]** Contexts to be unsubscribed
+
+Returns **Chart** A reference to this chart (chainable).
+
+## on
+
+[src/chart.js:280-296](https://github.com/kotojs/kotojs/blob/4ea96b078e26f22d6c35908fd62c6bde3b764e7d/src/chart.js#L280-L296 "Source code on GitHub")
+
+Subscribe a callback function to an event triggered on the chart. See `Chart#once` to subscribe a callback function to an event for one occurrence.
+
+**Parameters**
+
+-   `name` **String** Name of the event
+-   `callback` **ChartEventHandler** Function to be invoked when the event
+           occurs
+-   `context` **[Object]** Value to set as `this` when invoking the
+           `callback`. Defaults to the chart instance.
+
+Returns **Chart** A reference to this chart (chainable).
+
+## once
+
+[src/chart.js:314-321](https://github.com/kotojs/kotojs/blob/4ea96b078e26f22d6c35908fd62c6bde3b764e7d/src/chart.js#L314-L321 "Source code on GitHub")
+
+Subscribe a callback function to an event triggered on the chart. This
+function will be invoked at the next occurrence of the event and immediately
+unsubscribed. See `Chart#on` to subscribe a callback function to an
+event indefinitely.
+
+**Parameters**
+
+-   `name` **String** Name of the event
+-   `callback` **ChartEventHandler** Function to be invoked when the event
+           occurs
+-   `context` **[Object]** Value to set as `this` when invoking the
+           `callback`. Defaults to the chart instance
+
+Returns **Chart** A reference to this chart (chainable)
+
+## postDraw
+
+[src/chart.js:104-104](https://github.com/kotojs/kotojs/blob/4ea96b078e26f22d6c35908fd62c6bde3b764e7d/src/chart.js#L104-L104 "Source code on GitHub")
+
+A "hook" method that will allow you to run some arbitrary code after
+`Chart#draw`. This will run every time `Chart#draw` is called.
+
+Note: you will most likely never call this method directly, but rather
+include it as part of a chart definition, and then rely on koto to
+invoke it when you draw the chart with `Chart#draw`.
+
+**Parameters**
+
+-   `data` **** [description]
+
+## postTransition
+
+[src/chart.js:120-120](https://github.com/kotojs/kotojs/blob/4ea96b078e26f22d6c35908fd62c6bde3b764e7d/src/chart.js#L120-L120 "Source code on GitHub")
+
+A "hook" method that will allow you to run some arbitrary code after
+`Chart#draw` is called AND after all transitions for all layers
+and attached charts have been completed. This will run every time
+`Chart#draw` is called.
+
+Note: you will most likely never call this method directly, but rather
+include it as part of a chart definition, and then rely on koto to
+invoke it when you draw the chart with `Chart#draw`.
+
+Note 2: a `postTransition` event is also fired when appropriate;
+
+**Parameters**
+
+-   `data` **** 
+
+## preDraw
+
+[src/chart.js:92-92](https://github.com/kotojs/kotojs/blob/4ea96b078e26f22d6c35908fd62c6bde3b764e7d/src/chart.js#L92-L92 "Source code on GitHub")
+
+A "hook" method that will allow you to run some arbitrary code before
+`Chart#draw`. This will run every time `Chart#draw` is called.
+
+Note: you will most likely never call this method directly, but rather
+include it as part of a chart definition, and then rely on koto to
+invoke it when you draw the chart with `Chart#draw`.
+
+Note 2: a `postDraw` event is also fired when appropriate;
+
+**Parameters**
+
+-   `data` **** [description]
+
+Returns **** [description]
+
+## transform
+
+[src/chart.js:60-60](https://github.com/kotojs/kotojs/blob/4ea96b078e26f22d6c35908fd62c6bde3b764e7d/src/chart.js#L60-L60 "Source code on GitHub")
+
+A "hook" method that you may define to modify input data before it is used
+to draw the chart's layers and attachments. This method will be used by all
+sub-classes. You may optionally return a promise if your data transformation
+is asynchronous (i.e. you're using web workers).
+
+Note: you will most likely never call this method directly, but rather
+include it as part of a chart definition, and then rely on koto to
+invoke it when you draw the chart with `Chart#draw`.
+
+**Parameters**
+
+-   `data` **Array** Input data provided to @link Chart#draw}.
+
+Returns **mixed** Data to be used in drawing the chart's layers and
+                 attachments.
+
+## trigger
+
+[src/chart.js:380-387](https://github.com/kotojs/kotojs/blob/4ea96b078e26f22d6c35908fd62c6bde3b764e7d/src/chart.js#L380-L387 "Source code on GitHub")
+
+Publish an event on this chart with the given `name`.
+
+**Parameters**
+
+-   `name` **String** Name of the event to publish
+-   `arguments` **...Any** Values with which to invoke the registered
+           callbacks.
+-   `args` **...** 
+
+Returns **Chart** A reference to this chart (chainable).
+
+## unlayer
+
+[src/chart.js:128-135](https://github.com/kotojs/kotojs/blob/4ea96b078e26f22d6c35908fd62c6bde3b764e7d/src/chart.js#L128-L135 "Source code on GitHub")
+
+Remove a layer from the chart.
+
+**Parameters**
+
+-   `name` **String** The name of the layer to remove.
+
+Returns **Layer** The layer removed by this operation.
+
+## extend
+
+[src/chart.js:503-521](https://github.com/kotojs/kotojs/blob/4ea96b078e26f22d6c35908fd62c6bde3b764e7d/src/chart.js#L503-L521 "Source code on GitHub")
+
+This will extend a chart by passing in an object of initialize function.
+
+**Parameters**
+
+-   `init`  
+
+Returns **Construtor** Chart constructor
+
+## Layer
+
+[src/chart.js:528-528](https://github.com/kotojs/kotojs/blob/4ea96b078e26f22d6c35908fd62c6bde3b764e7d/src/chart.js#L528-L528 "Source code on GitHub")
+
+Expose the Layer class so that it can be subclassed.
+
+# Layer
+
+[src/layer.js:20-260](https://github.com/kotojs/kotojs/blob/4ea96b078e26f22d6c35908fd62c6bde3b764e7d/src/layer.js#L20-L260 "Source code on GitHub")
+
+Create a layer using the provided `base`. The layer instance is _not_
+exposed to koto users. Instead, the instance methods are mixed in to the
+`base` selection it describes; users interact with the instance via these
+bound methods.
+
+**Parameters**
+
+-   `base` **d3.selection** The containing DOM node for the layer.
+-   `options` **Object** Overrides for databind, insert and event methods.
+    -   `options.databind` **Function** databind override
+    -   `options.insert` **Function** insert override
+    -   `options.events` **Function** life-cycle event handler overrides.
+                                         Possible values are [enter, update, merge, exit] 
+                                         with or without the 'transition postfix'.
+
+## dataBind
+
+[src/layer.js:47-49](https://github.com/kotojs/kotojs/blob/4ea96b078e26f22d6c35908fd62c6bde3b764e7d/src/layer.js#L47-L49 "Source code on GitHub")
+
+Invoked by `Layer#draw` to join data with this layer's DOM nodes. This
+implementation is "virtual"--it _must_ be overridden by Layer instances.
+
+**Parameters**
+
+-   `data` **Array** Value passed to `Layer#draw`
+-   `context` **[Object]** the instance of this layers
+
+## draw
+
+[src/layer.js:138-259](https://github.com/kotojs/kotojs/blob/4ea96b078e26f22d6c35908fd62c6bde3b764e7d/src/layer.js#L138-L259 "Source code on GitHub")
+
+Render the layer according to the input data. Bind the data to the layer
+(according to `Layer#dataBind`, insert new elements (according to
+`Layer#insert`, make lifecycle selections, and invoke all relevant
+handlers (as attached via `Layer#on`) with the lifecycle selections.
+
+-   update
+-   update:transition
+-   enter
+-   enter:transition
+-   exit
+-   exit:transition
+
+**Parameters**
+
+-   `data` **Array** Data to drive the rendering.
+
+## insert
+
+[src/layer.js:56-58](https://github.com/kotojs/kotojs/blob/4ea96b078e26f22d6c35908fd62c6bde3b764e7d/src/layer.js#L56-L58 "Source code on GitHub")
+
+Invoked by `Layer#draw` in order to insert new DOM nodes into this
+layer's `base`. This implementation is "virtual"--it _must_ be overridden by
+Layer instances.
+
+## off
+
+[src/layer.js:98-121](https://github.com/kotojs/kotojs/blob/4ea96b078e26f22d6c35908fd62c6bde3b764e7d/src/layer.js#L98-L121 "Source code on GitHub")
+
+Unsubscribe the specified handler from the specified event. If no handler is
+supplied, remove _all_ handlers from the event.
+
+**Parameters**
+
+-   `eventName` **String** Identifier for event from which to remove
+           unsubscribe
+-   `handler` **Function** Callback to remove from the specified event
+
+Returns **Chart** Reference to the layer instance (for chaining).
+
+## on
+
+[src/layer.js:71-86](https://github.com/kotojs/kotojs/blob/4ea96b078e26f22d6c35908fd62c6bde3b764e7d/src/layer.js#L71-L86 "Source code on GitHub")
+
+Subscribe a handler to a lifecycle event. These events (and only these
+events) are triggered when `Layer#draw` is invoked--see that method
+for more details on lifecycle events.
+
+**Parameters**
+
+-   `eventName` **String** Identifier for the lifecycle event for which to
+           subscribe.
+-   `handler` **Function** Callback function
+-   `options`  
+
+Returns **Chart** Reference to the layer instance (for chaining).
+
+# kotoAssert
+
+[src/assert.js:6-11](https://github.com/kotojs/kotojs/blob/4ea96b078e26f22d6c35908fd62c6bde3b764e7d/src/assert.js#L6-L11 "Source code on GitHub")
+
+Simple Assertion function
+
+**Parameters**
+
+-   `test` **anything** Anything that will evaluate to true of false.
+-   `message` **string** The error message to send if `test` is false

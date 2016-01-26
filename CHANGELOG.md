@@ -1,3 +1,14 @@
+<a name="0.2.0"></a>
+# [0.2.0](https://github.com/kotojs/kotojs/compare/v0.1.11...v0.2.0) (2016-01-13)
+
+
+### Features
+
+* **Layer:** expose Layer so it can be subclassed ([b3aa042](https://github.com/kotojs/kotojs/commit/b3aa042))
+* **layer.databind:** add context as optional second parameter ([a5c72fa](https://github.com/kotojs/kotojs/commit/a5c72fa))
+
+
+
 <a name="0.1.11"></a>
 ## [0.1.11](https://github.com/kotojs/kotojs/compare/v0.1.10...v0.1.11) (2016-01-05)
 
