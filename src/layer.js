@@ -2,10 +2,7 @@ import kotoAssert from './assert.js';
 import d3 from 'd3';
 
 /**
- * Create a layer using the provided `base`. The layer instance is *not*
- * exposed to koto users. Instead, the instance methods are mixed in to the
- * `base` selection it describes; users interact with the instance via these
- * bound methods.
+ * Create a layer using the provided `base` selection. 
  *
  * @class
  *
@@ -13,7 +10,7 @@ import d3 from 'd3';
  * @param {Object} options Overrides for databind, insert and event methods.
  * @param {Function} options.databind databind override
  * @param {Function} options.insert insert override
- * @param {Function} options.events life-cycle event handler overrides.
+ * @param {Function} [options.events] life-cycle event handler overrides.
  *                                  Possible values are [enter, update, merge, exit] 
  *                                  with or without the 'transition postfix'.
  */
