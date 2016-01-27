@@ -1,6 +1,6 @@
 # Chart
 
-[src/chart.js:16-523](https://github.com/kotojs/kotojs/blob/4ea96b078e26f22d6c35908fd62c6bde3b764e7d/src/chart.js#L16-L523 "Source code on GitHub")
+[src/chart.js:16-523](https://github.com/kotojs/kotojs/blob/cfdecdb1900509266b12db786b32f36e7b2090eb/src/chart.js#L16-L523 "Source code on GitHub")
 
 Create a koto chart
 
@@ -11,7 +11,7 @@ Create a koto chart
 
 ## accessor
 
-[src/chart.js:477-496](https://github.com/kotojs/kotojs/blob/4ea96b078e26f22d6c35908fd62c6bde3b764e7d/src/chart.js#L477-L496 "Source code on GitHub")
+[src/chart.js:477-496](https://github.com/kotojs/kotojs/blob/cfdecdb1900509266b12db786b32f36e7b2090eb/src/chart.js#L477-L496 "Source code on GitHub")
 
 This will get or set any of the chart's accessors.
 
@@ -24,7 +24,7 @@ Returns **object** The chart to preserve chainability.
 
 ## attach
 
-[src/chart.js:210-217](https://github.com/kotojs/kotojs/blob/4ea96b078e26f22d6c35908fd62c6bde3b764e7d/src/chart.js#L210-L217 "Source code on GitHub")
+[src/chart.js:210-217](https://github.com/kotojs/kotojs/blob/cfdecdb1900509266b12db786b32f36e7b2090eb/src/chart.js#L210-L217 "Source code on GitHub")
 
 Register or retrieve an "attachment" Chart. The "attachment" chart's `draw`
 method will be invoked whenever the containing chart's `draw` method is
@@ -41,7 +41,7 @@ Returns **Chart** Reference to this chart (chainable).
 
 ## config
 
-[src/chart.js:397-467](https://github.com/kotojs/kotojs/blob/4ea96b078e26f22d6c35908fd62c6bde3b764e7d/src/chart.js#L397-L467 "Source code on GitHub")
+[src/chart.js:397-467](https://github.com/kotojs/kotojs/blob/cfdecdb1900509266b12db786b32f36e7b2090eb/src/chart.js#L397-L467 "Source code on GitHub")
 
 Get and set chart options (or configs)
 
@@ -55,7 +55,7 @@ Returns **mixed** if getting: the value. if setting: the chart instance.
 
 ## demux
 
-[src/chart.js:77-77](https://github.com/kotojs/kotojs/blob/4ea96b078e26f22d6c35908fd62c6bde3b764e7d/src/chart.js#L77-L77 "Source code on GitHub")
+[src/chart.js:77-77](https://github.com/kotojs/kotojs/blob/cfdecdb1900509266b12db786b32f36e7b2090eb/src/chart.js#L77-L77 "Source code on GitHub")
 
 A "hook" method that you may define to choose which mutation of the input
 data is sent to which of the attached charts (by name). This method will
@@ -77,7 +77,7 @@ Returns **mixed** Data to be used in drawing the chart's layers and
 
 ## draw
 
-[src/chart.js:231-264](https://github.com/kotojs/kotojs/blob/4ea96b078e26f22d6c35908fd62c6bde3b764e7d/src/chart.js#L231-L264 "Source code on GitHub")
+[src/chart.js:231-264](https://github.com/kotojs/kotojs/blob/cfdecdb1900509266b12db786b32f36e7b2090eb/src/chart.js#L231-L264 "Source code on GitHub")
 
 Update the chart's representation in the DOM, drawing all of its layers and
 any "attachment" charts (as attached via `Chart#attach`).
@@ -94,7 +94,7 @@ time the chart is drawn.
 
 ## layer
 
-[src/chart.js:162-196](https://github.com/kotojs/kotojs/blob/4ea96b078e26f22d6c35908fd62c6bde3b764e7d/src/chart.js#L162-L196 "Source code on GitHub")
+[src/chart.js:162-196](https://github.com/kotojs/kotojs/blob/cfdecdb1900509266b12db786b32f36e7b2090eb/src/chart.js#L162-L196 "Source code on GitHub")
 
 Interact with the chart's `Layer|layers`.
 
@@ -124,7 +124,7 @@ Returns **Layer**
 
 ## off
 
-[src/chart.js:340-367](https://github.com/kotojs/kotojs/blob/4ea96b078e26f22d6c35908fd62c6bde3b764e7d/src/chart.js#L340-L367 "Source code on GitHub")
+[src/chart.js:340-367](https://github.com/kotojs/kotojs/blob/cfdecdb1900509266b12db786b32f36e7b2090eb/src/chart.js#L340-L367 "Source code on GitHub")
 
 Unsubscribe one or more callback functions from an event triggered on the
 chart. When no arguments are specified, _all_ handlers will be unsubscribed.
@@ -144,7 +144,7 @@ Returns **Chart** A reference to this chart (chainable).
 
 ## on
 
-[src/chart.js:280-296](https://github.com/kotojs/kotojs/blob/4ea96b078e26f22d6c35908fd62c6bde3b764e7d/src/chart.js#L280-L296 "Source code on GitHub")
+[src/chart.js:280-296](https://github.com/kotojs/kotojs/blob/cfdecdb1900509266b12db786b32f36e7b2090eb/src/chart.js#L280-L296 "Source code on GitHub")
 
 Subscribe a callback function to an event triggered on the chart. See `Chart#once` to subscribe a callback function to an event for one occurrence.
 
@@ -160,7 +160,7 @@ Returns **Chart** A reference to this chart (chainable).
 
 ## once
 
-[src/chart.js:314-321](https://github.com/kotojs/kotojs/blob/4ea96b078e26f22d6c35908fd62c6bde3b764e7d/src/chart.js#L314-L321 "Source code on GitHub")
+[src/chart.js:314-321](https://github.com/kotojs/kotojs/blob/cfdecdb1900509266b12db786b32f36e7b2090eb/src/chart.js#L314-L321 "Source code on GitHub")
 
 Subscribe a callback function to an event triggered on the chart. This
 function will be invoked at the next occurrence of the event and immediately
@@ -179,7 +179,7 @@ Returns **Chart** A reference to this chart (chainable)
 
 ## postDraw
 
-[src/chart.js:104-104](https://github.com/kotojs/kotojs/blob/4ea96b078e26f22d6c35908fd62c6bde3b764e7d/src/chart.js#L104-L104 "Source code on GitHub")
+[src/chart.js:104-104](https://github.com/kotojs/kotojs/blob/cfdecdb1900509266b12db786b32f36e7b2090eb/src/chart.js#L104-L104 "Source code on GitHub")
 
 A "hook" method that will allow you to run some arbitrary code after
 `Chart#draw`. This will run every time `Chart#draw` is called.
@@ -194,7 +194,7 @@ invoke it when you draw the chart with `Chart#draw`.
 
 ## postTransition
 
-[src/chart.js:120-120](https://github.com/kotojs/kotojs/blob/4ea96b078e26f22d6c35908fd62c6bde3b764e7d/src/chart.js#L120-L120 "Source code on GitHub")
+[src/chart.js:120-120](https://github.com/kotojs/kotojs/blob/cfdecdb1900509266b12db786b32f36e7b2090eb/src/chart.js#L120-L120 "Source code on GitHub")
 
 A "hook" method that will allow you to run some arbitrary code after
 `Chart#draw` is called AND after all transitions for all layers
@@ -213,7 +213,7 @@ Note 2: a `postTransition` event is also fired when appropriate;
 
 ## preDraw
 
-[src/chart.js:92-92](https://github.com/kotojs/kotojs/blob/4ea96b078e26f22d6c35908fd62c6bde3b764e7d/src/chart.js#L92-L92 "Source code on GitHub")
+[src/chart.js:92-92](https://github.com/kotojs/kotojs/blob/cfdecdb1900509266b12db786b32f36e7b2090eb/src/chart.js#L92-L92 "Source code on GitHub")
 
 A "hook" method that will allow you to run some arbitrary code before
 `Chart#draw`. This will run every time `Chart#draw` is called.
@@ -232,7 +232,7 @@ Returns **** [description]
 
 ## transform
 
-[src/chart.js:60-60](https://github.com/kotojs/kotojs/blob/4ea96b078e26f22d6c35908fd62c6bde3b764e7d/src/chart.js#L60-L60 "Source code on GitHub")
+[src/chart.js:60-60](https://github.com/kotojs/kotojs/blob/cfdecdb1900509266b12db786b32f36e7b2090eb/src/chart.js#L60-L60 "Source code on GitHub")
 
 A "hook" method that you may define to modify input data before it is used
 to draw the chart's layers and attachments. This method will be used by all
@@ -252,7 +252,7 @@ Returns **mixed** Data to be used in drawing the chart's layers and
 
 ## trigger
 
-[src/chart.js:380-387](https://github.com/kotojs/kotojs/blob/4ea96b078e26f22d6c35908fd62c6bde3b764e7d/src/chart.js#L380-L387 "Source code on GitHub")
+[src/chart.js:380-387](https://github.com/kotojs/kotojs/blob/cfdecdb1900509266b12db786b32f36e7b2090eb/src/chart.js#L380-L387 "Source code on GitHub")
 
 Publish an event on this chart with the given `name`.
 
@@ -267,7 +267,7 @@ Returns **Chart** A reference to this chart (chainable).
 
 ## unlayer
 
-[src/chart.js:128-135](https://github.com/kotojs/kotojs/blob/4ea96b078e26f22d6c35908fd62c6bde3b764e7d/src/chart.js#L128-L135 "Source code on GitHub")
+[src/chart.js:128-135](https://github.com/kotojs/kotojs/blob/cfdecdb1900509266b12db786b32f36e7b2090eb/src/chart.js#L128-L135 "Source code on GitHub")
 
 Remove a layer from the chart.
 
@@ -279,7 +279,7 @@ Returns **Layer** The layer removed by this operation.
 
 ## extend
 
-[src/chart.js:503-521](https://github.com/kotojs/kotojs/blob/4ea96b078e26f22d6c35908fd62c6bde3b764e7d/src/chart.js#L503-L521 "Source code on GitHub")
+[src/chart.js:503-521](https://github.com/kotojs/kotojs/blob/cfdecdb1900509266b12db786b32f36e7b2090eb/src/chart.js#L503-L521 "Source code on GitHub")
 
 This will extend a chart by passing in an object of initialize function.
 
@@ -291,13 +291,13 @@ Returns **Construtor** Chart constructor
 
 ## Layer
 
-[src/chart.js:528-528](https://github.com/kotojs/kotojs/blob/4ea96b078e26f22d6c35908fd62c6bde3b764e7d/src/chart.js#L528-L528 "Source code on GitHub")
+[src/chart.js:528-528](https://github.com/kotojs/kotojs/blob/cfdecdb1900509266b12db786b32f36e7b2090eb/src/chart.js#L528-L528 "Source code on GitHub")
 
 Expose the Layer class so that it can be subclassed.
 
 # Layer
 
-[src/layer.js:20-260](https://github.com/kotojs/kotojs/blob/4ea96b078e26f22d6c35908fd62c6bde3b764e7d/src/layer.js#L20-L260 "Source code on GitHub")
+[src/layer.js:20-260](https://github.com/kotojs/kotojs/blob/cfdecdb1900509266b12db786b32f36e7b2090eb/src/layer.js#L20-L260 "Source code on GitHub")
 
 Create a layer using the provided `base`. The layer instance is _not_
 exposed to koto users. Instead, the instance methods are mixed in to the
@@ -316,7 +316,7 @@ bound methods.
 
 ## dataBind
 
-[src/layer.js:47-49](https://github.com/kotojs/kotojs/blob/4ea96b078e26f22d6c35908fd62c6bde3b764e7d/src/layer.js#L47-L49 "Source code on GitHub")
+[src/layer.js:47-49](https://github.com/kotojs/kotojs/blob/cfdecdb1900509266b12db786b32f36e7b2090eb/src/layer.js#L47-L49 "Source code on GitHub")
 
 Invoked by `Layer#draw` to join data with this layer's DOM nodes. This
 implementation is "virtual"--it _must_ be overridden by Layer instances.
@@ -328,7 +328,7 @@ implementation is "virtual"--it _must_ be overridden by Layer instances.
 
 ## draw
 
-[src/layer.js:138-259](https://github.com/kotojs/kotojs/blob/4ea96b078e26f22d6c35908fd62c6bde3b764e7d/src/layer.js#L138-L259 "Source code on GitHub")
+[src/layer.js:138-259](https://github.com/kotojs/kotojs/blob/cfdecdb1900509266b12db786b32f36e7b2090eb/src/layer.js#L138-L259 "Source code on GitHub")
 
 Render the layer according to the input data. Bind the data to the layer
 (according to `Layer#dataBind`, insert new elements (according to
@@ -348,7 +348,7 @@ handlers (as attached via `Layer#on`) with the lifecycle selections.
 
 ## insert
 
-[src/layer.js:56-58](https://github.com/kotojs/kotojs/blob/4ea96b078e26f22d6c35908fd62c6bde3b764e7d/src/layer.js#L56-L58 "Source code on GitHub")
+[src/layer.js:56-58](https://github.com/kotojs/kotojs/blob/cfdecdb1900509266b12db786b32f36e7b2090eb/src/layer.js#L56-L58 "Source code on GitHub")
 
 Invoked by `Layer#draw` in order to insert new DOM nodes into this
 layer's `base`. This implementation is "virtual"--it _must_ be overridden by
@@ -356,7 +356,7 @@ Layer instances.
 
 ## off
 
-[src/layer.js:98-121](https://github.com/kotojs/kotojs/blob/4ea96b078e26f22d6c35908fd62c6bde3b764e7d/src/layer.js#L98-L121 "Source code on GitHub")
+[src/layer.js:98-121](https://github.com/kotojs/kotojs/blob/cfdecdb1900509266b12db786b32f36e7b2090eb/src/layer.js#L98-L121 "Source code on GitHub")
 
 Unsubscribe the specified handler from the specified event. If no handler is
 supplied, remove _all_ handlers from the event.
@@ -371,7 +371,7 @@ Returns **Chart** Reference to the layer instance (for chaining).
 
 ## on
 
-[src/layer.js:71-86](https://github.com/kotojs/kotojs/blob/4ea96b078e26f22d6c35908fd62c6bde3b764e7d/src/layer.js#L71-L86 "Source code on GitHub")
+[src/layer.js:71-86](https://github.com/kotojs/kotojs/blob/cfdecdb1900509266b12db786b32f36e7b2090eb/src/layer.js#L71-L86 "Source code on GitHub")
 
 Subscribe a handler to a lifecycle event. These events (and only these
 events) are triggered when `Layer#draw` is invoked--see that method
@@ -388,7 +388,7 @@ Returns **Chart** Reference to the layer instance (for chaining).
 
 # kotoAssert
 
-[src/assert.js:6-11](https://github.com/kotojs/kotojs/blob/4ea96b078e26f22d6c35908fd62c6bde3b764e7d/src/assert.js#L6-L11 "Source code on GitHub")
+[src/assert.js:6-11](https://github.com/kotojs/kotojs/blob/cfdecdb1900509266b12db786b32f36e7b2090eb/src/assert.js#L6-L11 "Source code on GitHub")
 
 Simple Assertion function
 
