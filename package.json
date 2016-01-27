@@ -13,7 +13,7 @@
     "build": "rm -rf ./dist && NODE_ENV=production ./node_modules/.bin/webpack",
     "precommit": "npm run build && git add dist && npm run jshint",
     "preversion": "npm run jshint && npm test && npm run docs",
-    "version": "npm run build && npm run changelog && git add -A dist",
+    "version": "npm run build && npm run changelog && git add -A dist CHANGELOG.md docs/docs.md",
     "postversion": "git push && git push --tags",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -w -r 0",
     "watch": "rm -rf ./dist && NODE_ENV=production ./node_modules/.bin/webpack --progress --colors --watch",
