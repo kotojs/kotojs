@@ -494,6 +494,16 @@ module.exports = Koto => {
       });
     });
 
+    describe('#destory', function () {
+      beforeEach(function () {
+        this.myChart = new this.Test(d3.select('#test'));
+      });
+
+      it('should destroy the DOM node', function () {
+        expect(() => this.myChart.destroy()).to.not.throw(Error);
+      });
+    });
+
     describe('#config', function () {
       beforeEach(function () {
         this.myChart = new this.Test(d3.select('#test'));

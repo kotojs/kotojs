@@ -387,6 +387,29 @@ class Chart {
   }
 
   /**
+   * Cleanly dispose of chart
+   *
+   * @return undefined
+   */
+  destroy() {
+    var node = this.base.node();
+
+    // exposed properties
+    this.configs = {};
+    this.accessors = {};
+    this.promise = null;
+
+    // clear up remaining data
+    this._layers.clear();
+    this._attached.clear();
+    this._events.clear();
+
+    if (node.parentNode) {
+      node.parentNode.removeChild(node);
+    }
+  }
+
+  /**
    * Get and set chart options (or configs)
    *
    * @param  {mixed} nameOrObject Name of item getting or setting
