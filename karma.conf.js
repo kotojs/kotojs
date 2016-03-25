@@ -9,7 +9,7 @@ var entry = path.resolve(webpackConfig.context, webpackConfig.entry.koto);
 var preprocessors = {};
 preprocessors[entry] = ['webpack'];
 
-// pass all essential scripts to istanbul for coverage 
+// pass all essential scripts to istanbul for coverage
 webpackConfig.module.postLoaders = [{
   test: /\.js$/,
   exclude: /(\.spec.js|vendor|node_modules)/,
@@ -27,6 +27,12 @@ module.exports = function (config) {
       entry
     ],
     webpack: webpackConfig,
+    webpackServer: {
+      quite: true,
+      progress: false,
+      stats: false,
+      debug: false
+    },
 
     // list of files to exclude
     exclude: [
