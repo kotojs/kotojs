@@ -396,23 +396,6 @@ class Chart {
    */
   config(nameOrObject, value) {
     var key;
-    var definition;
-    var _Chart = this;
-
-    function setPercentage () {
-      function calculatePercentage (arr, initialValue) {
-        var min = Math.min.call(null, arr.map(function (name) { return _Chart.config(name); }));
-        return initialValue / min;
-      }
-
-      if (definition.constrain === true) {
-        definition.percentage = calculatePercentage(['width', 'height'], definition.value);
-      } else if (Array.isArray(definition.constrain)) {
-        definition.percentage = calculatePercentage(definition.constrain, definition.value);
-      } else {
-        definition.percentage = calculatePercentage([definition.constrain], definition.value);
-      }
-    }
 
     if (arguments.length === 0) {
       return this.configs;
@@ -422,16 +405,7 @@ class Chart {
       if (typeof nameOrObject === 'object') {
         for (key in nameOrObject) {
           if(this.configs.hasOwnProperty(key)) {
-            definition = this.configs[key];
-            if (definition.hasOwnProperty('setter')) {
-              definition.value = definition.setter.call(definition, nameOrObject[key]);
-            } else {
-              definition.value = nameOrObject[key];
-            }
-            if (definition.hasOwnProperty('constrain')) {
-              setPercentage();
-            }
-            this.configs[key] = definition;
+            this.configs[key] = nameOrObject[key];
           } else {
             console.warn(`config with name ${nameOrObject} is not defined.`);
           }
@@ -440,25 +414,12 @@ class Chart {
       }
 
       kotoAssert(this.configs.hasOwnProperty(nameOrObject), `${nameOrObject} is not a valid option.`);
-      definition = this.configs[nameOrObject];
-      if (definition.hasOwnProperty('getter')) {
-        return definition.getter.call(definition);
-      }
-      return definition.value;
+      return this.configs[nameOrObject];
     }
 
     if(arguments.length === 2) {
       if (this.configs.hasOwnProperty(nameOrObject)) {
-        definition = this.configs[nameOrObject];
-        if (definition.hasOwnProperty('setter')) {
-          definition.value = definition.setter.call(definition, value);
-        } else {
-          definition.value = value;
-        }
-        if (definition.hasOwnProperty('constrain')) {
-          setPercentage();
-        }
-        this.configs[nameOrObject] = definition;
+        this.configs[nameOrObject] = value;
       } else {
         console.warn(`config with name ${nameOrObject} is not defined.`);
       }
