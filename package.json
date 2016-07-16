@@ -71,7 +71,6 @@
     "webpack-dev-server": "^1.12.1"
   },
   "dependencies": {
-    "babel-polyfill": "^6.1.4",
     "d3-selection": "^1.0.0"
   },
   "config": {

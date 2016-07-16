@@ -1,4 +1,3 @@
-import 'babel-polyfill';
 import kotoAssert from './assert.js';
 import Layer from './layer.js';
 
