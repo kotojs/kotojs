@@ -39,6 +39,7 @@
     "chai": "^3.4.1",
     "conventional-changelog-cli": "^1.1.1",
     "cz-conventional-changelog": "^1.1.5",
+    "d3": "^4.1.1",
     "documentation": "^4.0.0-beta1",
     "fixmyjs": "^1.0.3",
     "husky": "^0.11.4",
@@ -71,7 +72,7 @@
   },
   "dependencies": {
     "babel-polyfill": "^6.1.4",
-    "d3": "^4.1.1"
+    "d3-selection": "^1.0.0"
   },
   "config": {
     "commitizen": {
