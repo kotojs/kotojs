@@ -551,10 +551,10 @@ class Chart {
 Chart.Layer = Layer;
 
 // run tests if on test environment
-if (ON_TEST) {
-  require('./assert.spec.js')(kotoAssert);
-  require('./layer.spec.js')(Layer, Chart);
-  require('./chart.spec.js')(Chart);
-}
+// if (ON_TEST) {
+//   require('./assert.spec.js')(kotoAssert);
+//   require('./layer.spec.js')(Layer, Chart);
+//   require('./chart.spec.js')(Chart);
+// }
 
-module.exports = Chart;
+export default Chart;
