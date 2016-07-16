@@ -70,7 +70,7 @@
   },
   "dependencies": {
     "babel-polyfill": "^6.1.4",
-    "d3": "^3.5.8"
+    "d3": "^4.1.1"
   },
   "config": {
     "commitizen": {

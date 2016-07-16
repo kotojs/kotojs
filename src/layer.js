@@ -1,8 +1,8 @@
 import kotoAssert from './assert.js';
-import d3 from 'd3';
+import * as d3 from 'd3';
 
 /**
- * Create a layer using the provided `base` selection. 
+ * Create a layer using the provided `base` selection.
  *
  * @class
  *
@@ -11,7 +11,7 @@ import d3 from 'd3';
  * @param {Function} options.databind databind override
  * @param {Function} options.insert insert override
  * @param {Function} [options.events] life-cycle event handler overrides.
- *                                  Possible values are [enter, update, merge, exit] 
+ *                                  Possible values are [enter, update, merge, exit]
  *                                  with or without the 'transition postfix'.
  */
 class Layer {

@@ -28,7 +28,6 @@ var config = {
     // but which can be loaded externally, e.g. from CDN
     // or included separately with a <script> tag
 
-    'd3': 'd3',
     'babel-polyfill': 'babel-polyfill'
     // 'koto-theme': {
     //   root: 'Theme',

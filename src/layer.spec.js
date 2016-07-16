@@ -1,3 +1,5 @@
+import * as d3 from 'd3';
+
 module.exports = (Layer, Chart) => {
   d3.select('body').append('div').attr('id', 'mocha');
   d3.select('body').append('div').attr('id', 'test');
