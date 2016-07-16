@@ -3,7 +3,7 @@
   "version": "0.3.0",
   "description": "A d3 chart framework written in ES6",
   "main": "./dist/koto.js",
-  "jsnext:main": "'./src/chart.js'",
+  "jsnext:main": "./src/chart.js",
   "scripts": {
     "start": "NODE_ENV=development node node_modules/.bin/webpack-dev-server --hot --inline",
     "test-ci": "NODE_ENV=test ./node_modules/karma/bin/karma start ./karma.conf.js --single-run --browsers PhantomJS,Firefox",
