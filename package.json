@@ -70,9 +70,7 @@
     "webpack": "^1.12.4",
     "webpack-dev-server": "^1.12.1"
   },
-  "dependencies": {
-    "d3-selection": "^1.0.0"
-  },
+  "dependencies": {},
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"

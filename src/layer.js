@@ -1,6 +1,7 @@
 import kotoAssert from './assert.js';
-import { selection } from 'd3-selection';
-const _d3 = { selection: selection };
+
+const isSelection = (maybe) => !!(maybe && maybe._groups && maybe._parents);
+
 /**
  * Create a layer using the provided `base` selection.
  *
@@ -174,7 +175,7 @@ class Layer {
 
     bound = this.dataBind.call(this._base, data, this);
 
-    kotoAssert(bound instanceof _d3.selection,
+    kotoAssert(isSelection(bound),
       'Invalid selection defined by `Layer#dataBind` method.');
     kotoAssert(bound.enter, 'Layer selection not properly bound.');
 
@@ -225,7 +226,7 @@ class Layer {
         continue;
       }
 
-      kotoAssert(selection && selection instanceof _d3.selection,
+      kotoAssert(isSelection(selection),
         `Invalid selection defined for ${eventName} lifecycle event.`);
 
       handlers = this._handlers[eventName];
