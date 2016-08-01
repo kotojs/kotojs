@@ -1,8 +1,9 @@
 import kotoAssert from './assert.js';
-import d3 from 'd3';
+
+const isSelection = (maybe) => !!(maybe && maybe._groups && maybe._parents);
 
 /**
- * Create a layer using the provided `base` selection. 
+ * Create a layer using the provided `base` selection.
  *
  * @class
  *
@@ -11,7 +12,7 @@ import d3 from 'd3';
  * @param {Function} options.databind databind override
  * @param {Function} options.insert insert override
  * @param {Function} [options.events] life-cycle event handler overrides.
- *                                  Possible values are [enter, update, merge, exit] 
+ *                                  Possible values are [enter, update, merge, exit]
  *                                  with or without the 'transition postfix'.
  */
 class Layer {
@@ -155,10 +156,10 @@ class Layer {
           .each(function() {
             ++n;
           })
-          .each('interrupt.promise', function () {
+          .on('interrupt.promise', function () {
             callback.apply(this, arguments);
           })
-          .each('end.promise', function () {
+          .on('end.promise', function () {
             if (!--n) {
               callback.apply(this, arguments);
             }
@@ -174,7 +175,7 @@ class Layer {
 
     bound = this.dataBind.call(this._base, data, this);
 
-    kotoAssert(bound instanceof d3.selection,
+    kotoAssert(isSelection(bound),
       'Invalid selection defined by `Layer#dataBind` method.');
     kotoAssert(bound.enter, 'Layer selection not properly bound.');
 
@@ -225,7 +226,7 @@ class Layer {
         continue;
       }
 
-      kotoAssert(selection && selection instanceof d3.selection,
+      kotoAssert(isSelection(selection),
         `Invalid selection defined for ${eventName} lifecycle event.`);
 
       handlers = this._handlers[eventName];

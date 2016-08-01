@@ -1,10 +1,6 @@
-import 'babel-polyfill';
-import d3 from 'd3';
 import kotoAssert from './assert.js';
 import Layer from './layer.js';
 
-// d3 is required
-kotoAssert(d3, 'd3 js is required.');
 /**
  * Create a koto chart
  *
@@ -551,10 +547,10 @@ class Chart {
 Chart.Layer = Layer;
 
 // run tests if on test environment
-if (ON_TEST) {
-  require('./assert.spec.js')(kotoAssert);
-  require('./layer.spec.js')(Layer, Chart);
-  require('./chart.spec.js')(Chart);
-}
+// if (ON_TEST) {
+//   require('./assert.spec.js')(kotoAssert);
+//   require('./layer.spec.js')(Layer, Chart);
+//   require('./chart.spec.js')(Chart);
+// }
 
-module.exports = Chart;
+export default Chart;
