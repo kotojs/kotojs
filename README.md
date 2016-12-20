@@ -160,5 +160,7 @@ The goal is to have a large library of pre-built widgets using this framework op
 - Basic Bar Chart (ES5): [http://jsbin.com/zutise/edit?js,output](http://jsbin.com/zutise/edit?js,output)
 - Stacked Bar Chart (ES2015): [http://jsbin.com/nifoxohuxa/edit?js,output](http://jsbin.com/nifoxohuxa/edit?js,output)
 
+> If you have any example code that you would like to share, please let me know!  
+
 ## Acknowledgements
 This project is **HEAVILY** inspired by the awesome work done by @jugglinmike and @iros and their charting framework called [d3.chart](https://github.com/misoproject/d3.chart).
