@@ -144,7 +144,7 @@ $ npm install koto --save
 ## Build Instructions
 Build requirements:
 
-- [Node 0.10+](http://www.nodejs.org)
+- [Node 6+](http://www.nodejs.org)
 
 
 ```js
