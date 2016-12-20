@@ -1,5 +1,5 @@
 import 'babel-polyfill';
-import d3 from 'd3';
+import * as d3 from 'd3';
 import kotoAssert from './assert.js';
 import Layer from './layer.js';
 

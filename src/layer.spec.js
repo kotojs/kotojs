@@ -159,13 +159,11 @@ module.exports = (Layer, Chart) => {
           var enterSpy = sinon.spy(function() {
             // Build the expected sparse array to pass lint and avoid
             // failures due to browser implementation differences
-            var expected = [];
-            expected[2] = 5;
-            expected[3] = 6;
+            var expected = [5, 6];
             expect(this.data(), 'enter handler').to.deep.equal(expected);
           });
           var mergeSpy = sinon.spy(function() {
-            expect(this.data(), 'merge handler').to.deep.equal([3, 4, 5, 6]);
+            expect(this.data(), 'merge handler').to.deep.equal([3, 4]);
           });
           var exitSpy = sinon.spy(function() {
             expect(this.data(), 'exit handler').to.deep.equal([1, 2]);

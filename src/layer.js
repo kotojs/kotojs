@@ -1,8 +1,8 @@
 import kotoAssert from './assert.js';
-import d3 from 'd3';
+import * as d3 from 'd3';
 
 /**
- * Create a layer using the provided `base` selection. 
+ * Create a layer using the provided `base` selection.
  *
  * @class
  *
@@ -11,7 +11,7 @@ import d3 from 'd3';
  * @param {Function} options.databind databind override
  * @param {Function} options.insert insert override
  * @param {Function} [options.events] life-cycle event handler overrides.
- *                                  Possible values are [enter, update, merge, exit] 
+ *                                  Possible values are [enter, update, merge, exit]
  *                                  with or without the 'transition postfix'.
  */
 class Layer {
@@ -146,30 +146,19 @@ class Layer {
       tlen,
       promises = [];
 
-    function endall(transition, callback) {
-      var n = 0;
-      if (transition.size() === 0) {
-        callback();
-      } else {
-        transition
-          .each(function() {
-            ++n;
-          })
-          .each('interrupt.promise', function () {
-            callback.apply(this, arguments);
-          })
-          .each('end.promise', function () {
-            if (!--n) {
-              callback.apply(this, arguments);
-            }
-          });
-      }
+    function endAll(transition, callback) {
+      let n = 0;
+      transition
+        .each(function inc () { ++n; })
+        .on('end', function done (...args) {
+          if (!--n) {
+            callback.apply(this, args);
+          }
+        });
     }
 
     function promiseCallback (resolve) {
-      selection.call(endall, function() {
-        resolve(true);
-      });
+      selection.call(endAll, function allDone () { return resolve(true); });
     }
 
     bound = this.dataBind.call(this._base, data, this);

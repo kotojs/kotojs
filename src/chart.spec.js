@@ -1,7 +1,7 @@
 module.exports = Koto => {
 
-  function throwError () {
-    throw new Error('');
+  function throwError (err) {
+    throw new Error(err);
   }
 
   describe('koto.Base', function() {
@@ -57,7 +57,7 @@ module.exports = Koto => {
               expect(this.attachmentChart.draw.args[0].length).to.equal(1);
               expect(this.attachmentChart.draw.args[0][0]).to.deep.equal(data);
               done();
-            }, throwError);
+            }).catch(throwError);
 
         });
       });
@@ -101,7 +101,7 @@ module.exports = Koto => {
                 'Unmodified data passes through to attachments directly'
               ).to.deep.equal(data.series2);
               done();
-            }, throwError);
+            }).catch(throwError);
 
         });
 
@@ -121,7 +121,7 @@ module.exports = Koto => {
                 'Unmodified data passes through to attachments directly'
               ).to.deep.equal(data.series2);
               done();
-            }, throwError);
+            }).catch(throwError);
 
         });
       });
@@ -223,7 +223,7 @@ module.exports = Koto => {
             expect(this.transform.callCount).to.equal(1);
             expect(this.transform.args[0][0]).to.equal(data);
             done();
-          }, throwError);
+          }).catch(throwError);
       });
 
       it('should return a promise with transformed data', function (done) {
@@ -232,7 +232,7 @@ module.exports = Koto => {
           .then((transformed) => {
             expect(transformed).to.equal(this.transformedData);
             done();
-          }, throwError);
+          }).catch(throwError);
       });
 
       it('should invoke the draw method for each of its layers', function (done) {
@@ -244,7 +244,7 @@ module.exports = Koto => {
             expect(this.layer1.draw.callCount).to.equal(1);
             expect(this.layer2.draw.callCount).to.equal(1);
             done();
-          }, throwError);
+          }).catch(throwError);
 
       });
 
@@ -254,7 +254,7 @@ module.exports = Koto => {
             expect(this.layer1.draw.args[0][0]).to.equal(this.transformedData);
             expect(this.layer2.draw.args[0][0]).to.equal(this.transformedData);
             done();
-          }, throwError);
+          }).catch(throwError);
 
       });
 
@@ -267,7 +267,7 @@ module.exports = Koto => {
             expect(this.attachment1.draw.callCount).to.equal(1);
             expect(this.attachment2.draw.callCount).to.equal(1);
             done();
-          }, throwError);
+          }).catch(throwError);
 
       });
 
@@ -277,7 +277,7 @@ module.exports = Koto => {
             expect(this.attachment1.draw.args[0][0]).to.equal(this.transformedData);
             expect(this.attachment2.draw.args[0][0]).to.equal(this.transformedData);
             done();
-          }, throwError);
+          }).catch(throwError);
 
       });
 
@@ -290,8 +290,7 @@ module.exports = Koto => {
               expect(this.layer2.draw.calledBefore(this.attachment1.draw)).to.be.true;
               expect(this.layer2.draw.calledBefore(this.attachment2.draw)).to.be.true;
               done();
-            }, throwError);
-
+            }).catch(throwError);
         });
       }
     );

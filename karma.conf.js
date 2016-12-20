@@ -23,7 +23,7 @@ module.exports = function (config) {
     files: [
       'node_modules/babel-polyfill/dist/polyfill.js',
       // 'node_modules/koto-theme/dist/theme.js',
-      'node_modules/d3/d3.js',
+      'node_modules/d3/build/d3.js',
       entry
     ],
     webpack: webpackConfig,
