@@ -1,34 +1,39 @@
 {
-    "name": "koto",
-    "version": "0.2.0",
-    "authors": [
-        "Nick Randall <nick.randall@domo.com>"
-    ],
-    "description": "A d3 chart framework written in ES6",
-    "main": "./dist/koto.js",
-    "moduleType": [
-        "amd",
-        "es6",
-        "globals",
-        "node"
-    ],
-    "keywords": [
-        "d3",
-        "chart",
-        "es6",
-        "visualization",
-        "koto"
-    ],
-    "license": "MIT",
-    "homepage": "https://github.com/nicksrandall/kotojs",
-    "ignore": [
-        "**/.*",
-        "node_modules",
-        "bower_components",
-        "test",
-        "tests"
-    ],
-    "dependencies": {
-        "d3": "~3.5.5"
-    }
+  "name": "koto",
+  "version": "0.4.0",
+  "authors": [
+    "Nick Randall <nick.randall@domo.com>"
+  ],
+  "description": "A d3 chart framework written in ES6",
+  "main": "./dist/koto.js",
+  "moduleType": [
+    "amd",
+    "es6",
+    "globals",
+    "node"
+  ],
+  "keywords": [
+    "d3",
+    "chart",
+    "es6",
+    "visualization",
+    "koto"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/nicksrandall/kotojs",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "d3": "~3.5.5"
+  },
+  "repository": {
+    "url": "https://github.com/kotojs/kotojs.git",
+    "type": "git"
+  },
+  "author": "Nick Randall <nick.randall@domo.com>"
 }

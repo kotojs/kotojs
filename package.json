@@ -20,8 +20,8 @@
     "docs": "./node_modules/.bin/documentation build src/chart.js src/layer.js -g -f md -o docs/docs.md"
   },
   "repository": {
-    "type": "git",
-    "url": "https://github.com/kotojs/kotojs.git"
+    "url": "https://github.com/kotojs/kotojs.git",
+    "type": "git"
   },
   "bugs": {
     "url": "https://github.com/kotojs/kotojs/issues"
@@ -43,7 +43,7 @@
     "husky": "^0.12.0",
     "install": "^0.8.2",
     "istanbul": "^0.4.5",
-    "istanbul-instrumenter-loader": "^1.1.0",
+    "istanbul-instrumenter-loader": "^0.2.0",
     "jshint": "^2.9.4",
     "karma": "^1.3.0",
     "karma-babel-preprocessor": "^6.0.1",
@@ -71,7 +71,8 @@
   "dependencies": {
     "babel-polyfill": "^6.20.0",
     "d3": "^4.4.0",
-    "d3-selection-multi": "^1.0.0"
+    "d3-selection-multi": "^1.0.0",
+    "istanbul-instrumenter-loader": "0.2.0"
   },
   "config": {
     "commitizen": {
