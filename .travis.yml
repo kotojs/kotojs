@@ -1,12 +1,24 @@
 language: node_js
+
 node_js:
   - "6"
   - "7"
+
 before_script:
   - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start
 
-script: npm run test-ci
+install:
+  - npm install -g codecov
+
+script:
+  - npm run test-ci
+  - codecov
+
+notifications:
+  webhooks:
+    urls:
+      - https://webhooks.gitter.im/e/aeb9d8c8e74a3d439975
 
 notifications:
   webhooks:

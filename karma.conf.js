@@ -50,7 +50,8 @@ module.exports = function (config) {
         return browser.toLowerCase().split(/[ /-]/)[0];
       },
       reporters: [
-        {type: 'cobertura', file: 'cobertura.xml'},
+        {type:'lcovonly', subdir: '.'},
+        {type:'json', subdir: '.'},
         {type: 'text', file: 'text.txt'},
         {type: 'text-summary', file: 'text-summary.txt'},
         {type: 'html'},
