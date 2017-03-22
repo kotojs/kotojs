@@ -164,3 +164,14 @@ The goal is to have a large library of pre-built widgets using this framework op
 
 ## Acknowledgements
 This project is **HEAVILY** inspired by the awesome work done by @jugglinmike and @iros and their charting framework called [d3.chart](https://github.com/misoproject/d3.chart).
+
+## Contributors
+
+Thanks goes to these wonderful people ([emoji key](https://github.com/kentcdodds/all-contributors#emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+| [<img src="https://avatars2.githubusercontent.com/u/1800460?v=3" width="100px;"/><br /><sub>Nick Randall</sub>](http://www.nickrandall.com)<br />[💻](https://github.com/kotojs/kotojs/commits?author=nicksrandall) [📖](https://github.com/kotojs/kotojs/commits?author=nicksrandall) 💡 [⚠️](https://github.com/kotojs/kotojs/commits?author=nicksrandall) | [<img src="https://avatars3.githubusercontent.com/u/556057?v=3" width="100px;"/><br /><sub>i alarmed alien</sub>](https://github.com/ialarmedalien)<br />[📖](https://github.com/kotojs/kotojs/commits?author=ialarmedalien) |
+| :---: | :---: |
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/kentcdodds/all-contributors) specification. Contributions of any kind welcome!

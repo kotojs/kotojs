@@ -1,0 +1,32 @@
+{
+  "projectName": "kotojs",
+  "projectOwner": "kotojs",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": true,
+  "contributors": [
+    {
+      "login": "nicksrandall",
+      "name": "Nick Randall",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/1800460?v=3",
+      "profile": "http://www.nickrandall.com",
+      "contributions": [
+        "code",
+        "doc",
+        "example",
+        "test"
+      ]
+    },
+    {
+      "login": "ialarmedalien",
+      "name": "i alarmed alien",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/556057?v=3",
+      "profile": "https://github.com/ialarmedalien",
+      "contributions": [
+        "doc"
+      ]
+    }
+  ]
+}

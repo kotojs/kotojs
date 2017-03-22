@@ -17,7 +17,9 @@
     "postversion": "git push && git push --tags",
     "changelog": "node_modules/.bin/conventional-changelog -p angular -i CHANGELOG.md -w -r 0",
     "watch": "rm -rf ./dist && NODE_ENV=production ./node_modules/.bin/webpack --progress --colors --watch",
-    "docs": "./node_modules/.bin/documentation build src/chart.js src/layer.js -g -f md -o docs/docs.md"
+    "docs": "./node_modules/.bin/documentation build src/chart.js src/layer.js -g -f md -o docs/docs.md",
+    "add": "all-contributors add",
+    "generate": "all-contributors generate"
   },
   "repository": {
     "url": "https://github.com/kotojs/kotojs.git",
@@ -30,6 +32,7 @@
   "homepage": "http://kotojs.org",
   "license": "MIT",
   "devDependencies": {
+    "all-contributors-cli": "^4.0.1",
     "babel": "^6.5.2",
     "babel-core": "^6.21.0",
     "babel-loader": "^6.2.10",
